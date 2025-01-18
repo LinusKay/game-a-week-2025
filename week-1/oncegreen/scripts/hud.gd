@@ -15,7 +15,9 @@ var _messages = [
 	"This place was green once.",
 	"Primaris, Tolaris, Orus orbit a dead planet.",
 	"This place was green once.",
-	""
+	"Solar winds sing of horror.",
+	"Winds that carry death.",
+	"This place was green once.",
 ]
 var _message_index = 0
 
