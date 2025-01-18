@@ -14,6 +14,7 @@ var t_bob = 0.0
 # FOV variables
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
+var fov_lock = false
 
 # Camera variables
 const CAMERA_LIMIT_DOWN = -60
@@ -21,6 +22,7 @@ const CAMERA_LIMIT_UP = 80
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -70,9 +72,10 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 	
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	if(!fov_lock):
+		var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+		var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+		camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 	move_and_slide()
 
