@@ -1,0 +1,786 @@
+[gd_scene load_steps=80 format=3 uid="uid://ckkk0vpr0d2kq"]
+
+[ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
+[ext_resource type="Texture2D" uid="uid://bbpfrl8nb8a2k" path="res://shader/assets/palette_rising_sun.png" id="2_vhckx"]
+[ext_resource type="Texture2D" uid="uid://d2q0t4cjcym6o" path="res://shader/assets/bayer16tile2.png" id="3_1usvs"]
+[ext_resource type="Texture2D" uid="uid://cmdu2y2dilqm3" path="res://shader/assets/test.png" id="4_3cbrq"]
+[ext_resource type="Texture2D" uid="uid://ch3yg74ba327p" path="res://assets/image/spritesheets/heart_pumping_md_wht1.png" id="6_jij7q"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="6_lmfgs"]
+[ext_resource type="AudioStream" uid="uid://c3j4oua7cxmyf" path="res://assets/audio/sfx/talking choppy 2.mp3" id="7_g48rk"]
+[ext_resource type="AudioStream" uid="uid://2jb1kpgnxox1" path="res://assets/audio/sfx/talking choppy.mp3" id="9_1g726"]
+[ext_resource type="Texture2D" uid="uid://drfqowmcxy2ab" path="res://assets/image/spritesheets/polyfox2-transparent.png" id="9_kk7wg"]
+[ext_resource type="AudioStream" uid="uid://cglcfuwie8uf4" path="res://assets/audio/sfx/wind.wav" id="9_n8qub"]
+[ext_resource type="AudioStream" uid="uid://bfe4dodw43ylu" path="res://assets/audio/music/etherealshapes.mp3" id="11_78ckd"]
+[ext_resource type="Texture2D" uid="uid://maxh15f8bd3p" path="res://assets/image/spritesheets/planet3_dark.png" id="12_46pw2"]
+[ext_resource type="FontFile" uid="uid://dr2fa64nbi0xu" path="res://assets/font/ARCADE_I.TTF" id="13_b3myn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_134gy"]
+shader = ExtResource("1_dfebx")
+shader_parameter/u_bit_depth = 64
+shader_parameter/u_contrast = 1.0
+shader_parameter/u_offset = 0.0
+shader_parameter/u_dither_size = 1
+shader_parameter/u_dither_tex = ExtResource("3_1usvs")
+shader_parameter/u_color_tex = ExtResource("2_vhckx")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbm8t"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_v6e5w"]
+sky_material = SubResource("ProceduralSkyMaterial_wbm8t")
+
+[sub_resource type="Environment" id="Environment_yb1ff"]
+background_mode = 2
+sky = SubResource("Sky_v6e5w")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_length = 133.42
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndej1"]
+albedo_color = Color(0.34902, 0.419608, 0.321569, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5vp7g"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2mdmn"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewt2r"]
+albedo_color = Color(0.964964, 0.688455, 0.737447, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tusk7"]
+shader = ExtResource("1_dfebx")
+shader_parameter/u_bit_depth = 64
+shader_parameter/u_contrast = 1.0
+shader_parameter/u_offset = null
+shader_parameter/u_dither_size = 1
+shader_parameter/u_dither_tex = ExtResource("3_1usvs")
+shader_parameter/u_color_tex = ExtResource("2_vhckx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hg60a"]
+font = ExtResource("13_b3myn")
+font_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4m1"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y6th"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt5pb"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4g1r"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pcx3"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wafmc"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgykh"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmc05"]
+atlas = ExtResource("6_jij7q")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61cgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y6th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt5pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4g1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pcx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wafmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgykh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmc05")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7whj"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn2rh"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5nbe"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao5oy"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80onk"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7qge"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1w6l"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkf1f"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk7kt"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1200, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_452ta"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1350, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfdky"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1500, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd5fv"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1650, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5p7s"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1800, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pntcb"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(1950, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8t7c"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2100, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st0pd"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2250, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qbcd"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2400, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv02t"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2550, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps75b"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2700, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi6my"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(2850, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5crd3"]
+atlas = ExtResource("9_kk7wg")
+region = Rect2(3000, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp7rh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7whj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn2rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5nbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao5oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80onk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7qge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1w6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkf1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk7kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_452ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfdky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd5fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5p7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pntcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8t7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st0pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qbcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv02t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps75b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi6my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5crd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjbgx"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1hrh"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1br7u"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ah5x"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4hjg"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg8p3"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gbro"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufxuj"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8od0b"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6ieu"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l717"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh8h8"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v58ns"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o072i"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_robuw"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6qow"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1920, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2yyw"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2048, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rswik"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2176, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb5r0"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2304, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33fs"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2432, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpkkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjbgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1hrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1br7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ah5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4hjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg8p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gbro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufxuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8od0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6ieu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l717")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh8h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v58ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o072i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_robuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6qow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2yyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rswik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb5r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33fs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujwpk"]
+font = ExtResource("13_b3myn")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpkev"]
+font = ExtResource("13_b3myn")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ikflq"]
+font = ExtResource("13_b3myn")
+font_size = 20
+
+[node name="world" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_134gy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Gradient" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_3cbrq")
+expand_mode = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_yb1ff")
+
+[node name="Floor" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.034, 0, 140.406)
+material_override = SubResource("StandardMaterial3D_ndej1")
+use_collision = true
+size = Vector3(907.254, 0.001, 798.771)
+
+[node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793025, 0)
+script = ExtResource("1_jcrvo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02345, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_5vp7g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34289, 0)
+shape = SubResource("ConvexPolygonShape3D_2mdmn")
+
+[node name="Head" type="Node3D" parent="SubViewportContainer/SubViewport/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63634, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Player/Head"]
+
+[node name="Step" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 1, 1.5)
+material_override = SubResource("StandardMaterial3D_ewt2r")
+use_collision = true
+size = Vector3(4, 3, 4)
+
+[node name="Step2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Step"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 5.06745)
+material_override = SubResource("StandardMaterial3D_ewt2r")
+use_collision = true
+size = Vector3(4, 4, 4)
+
+[node name="Step3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Step"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 10.0675)
+material_override = SubResource("StandardMaterial3D_ewt2r")
+use_collision = true
+size = Vector3(4, 4, 4)
+
+[node name="Orb" type="CSGSphere3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87324, 4.3865)
+
+[node name="Orb3" type="CSGSphere3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 805.628, 963.353, -1256.08)
+radius = 149.564
+
+[node name="Orb2" type="CSGSphere3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.669, 259.395, -176.261)
+radius = 8.0
+
+[node name="Orb3" type="CSGSphere3D" parent="SubViewportContainer/SubViewport/Orb2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5748, -16.873, -22.4013)
+radius = 8.0
+
+[node name="Orb4" type="CSGSphere3D" parent="SubViewportContainer/SubViewport/Orb2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.592, -33.7457, -44.8027)
+radius = 9.00592
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6056, 3.09399, 154.619)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D"]
+stream = ExtResource("9_1g726")
+volume_db = 10.0
+autoplay = true
+max_distance = 150.0
+panning_strength = 0.31
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/Node3D"]
+
+[node name="Node3D2" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.566, 3.09399, 60.2353)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D2"]
+stream = ExtResource("7_g48rk")
+volume_db = 10.0
+unit_size = 16.13
+max_db = 6.0
+autoplay = true
+max_distance = 150.0
+panning_strength = 0.31
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/Node3D2"]
+
+[node name="Tower" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 168.43, 55.712)
+use_collision = true
+size = Vector3(13, 348.242, 10)
+
+[node name="Tower2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.646, 169.449, 378.13)
+size = Vector3(42.292, 687.14, 10)
+
+[node name="Tower3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7156, 1.48001, 134.848)
+size = Vector3(13, 351.202, 10)
+
+[node name="Tower4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -38.8232, -16.328, 15.2401)
+size = Vector3(13, 315.586, 10)
+
+[node name="Tower5" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -35.584, 24.3747)
+size = Vector3(22, 277.074, 18.0913)
+
+[node name="Tower6" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -25.5794, -114.621, 48.449)
+size = Vector3(22, 119, 18.0913)
+
+[node name="Tower7" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 69.7072, -32.202, 110.349)
+size = Vector3(22, 283.839, 18.0913)
+
+[node name="Tower8" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.999999, 0, 0.00122193, 0, 1, 0, -0.00122193, 0, 0.999999, 113.816, -12.431, 59.954)
+size = Vector3(22, 323.38, 18.0913)
+
+[node name="Tower9" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.999999, 0, 0.00122193, 0, 1, 0, -0.00122193, 0, 0.999999, 109.997, -44.147, 179.285)
+size = Vector3(14.3579, 259.948, 9.61157)
+
+[node name="Tower10" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.99262, 0.00123979, -0.121257, -1.23692e-05, 0.999949, 0.0101227, 0.121263, -0.0100465, 0.99257, -60.5838, -44.147, 163.768)
+size = Vector3(14.3579, 259.948, 9.61157)
+
+[node name="Tower11" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.997655, 0.063975, -0.0243473, -0.0639559, 0.997952, 0.00156081, 0.0243973, 0, 0.999702, -3.25671, -11.983, 109.08)
+size = Vector3(16.9233, 324.526, 18.0913)
+
+[node name="Tower12" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.76339, 0, -0.645938, 0, 1, 0, 0.645938, 0, 0.76339, -114.729, -121.035, 41.0657)
+size = Vector3(11.9814, 106.173, 18.0913)
+
+[node name="Tower13" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.729, -157.621, 142.7)
+size = Vector3(11.9814, 33, 193)
+
+[node name="Tower14" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.50219, 0, 0.864757, 0, 1, 0, -0.864757, 0, 0.50219, -41.0315, -156.971, 150.439)
+size = Vector3(11.9814, 33, 193)
+
+[node name="Tower15" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(-0.348343, 0, 0.937367, 0, 1, 0, -0.937367, 0, -0.348343, 105.459, -156.971, 150.439)
+size = Vector3(11.9814, 33, 193)
+
+[node name="Tower16" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.641584, 0, -0.767053, 0, 1, 0, 0.767053, 0, 0.641584, -114.729, -157.621, 83.531)
+size = Vector3(11.9814, 33, 193)
+
+[node name="Tower17" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.76339, 0, -0.645938, 0, 1, 0, 0.645938, 0, 0.76339, -75.3141, -121.035, 82.982)
+size = Vector3(11.9814, 106.173, 18.0913)
+
+[node name="Tower18" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.965597, -0.0260897, -0.258731, 0.0252007, 0.99966, -0.00675251, 0.258819, 0, 0.965926, 36.4134, -42.514, -1.244)
+size = Vector3(22, 263.215, 18.0913)
+
+[node name="Tower19" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.838262, -0.183863, -0.513334, 0.0231921, 0.952604, -0.303327, 0.544775, 0.242362, 0.802796, -97.434, -164.003, -16.6026)
+size = Vector3(136, 20, 18.0913)
+
+[node name="Tower20" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
+transform = Transform3D(0.0701159, -0.304212, -0.950021, 0.124735, 0.947563, -0.294219, 0.98971, -0.0978712, 0.104385, -97.434, -159.165, -62.8026)
+size = Vector3(136, 20, 18.0913)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_tusk7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+transparent_bg = true
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Gradient" type="TextureRect" parent="SubViewportContainer2/SubViewport"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_3cbrq")
+expand_mode = 1
+
+[node name="HUD" type="CanvasLayer" parent="SubViewportContainer2/SubViewport/Gradient"]
+follow_viewport_enabled = true
+script = ExtResource("6_lmfgs")
+
+[node name="Title" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -53.0
+offset_right = 445.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+text = "ONCE GREEN
+BY LINUS KAY"
+label_settings = SubResource("LabelSettings_hg60a")
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="SubViewportContainer2/SubViewport/Gradient/HUD/Title"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="HUDHeart" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+position = Vector2(155, 600)
+sprite_frames = SubResource("SpriteFrames_61cgb")
+frame_progress = 0.650183
+
+[node name="HUDPolyfox" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+position = Vector2(1050, 575)
+sprite_frames = SubResource("SpriteFrames_dp7rh")
+
+[node name="HUDPlanet" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+position = Vector2(75, 575)
+sprite_frames = SubResource("SpriteFrames_kpkkl")
+
+[node name="LabelImplantError" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -264.5
+offset_right = 264.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Visual Implant: Fatal Error"
+label_settings = SubResource("LabelSettings_ujwpk")
+
+[node name="LabelTemperature" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+offset_top = 15.0
+offset_right = 177.0
+offset_bottom = 43.0
+text = "temp: 58c"
+label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelCoordsX" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+offset_top = 40.0
+offset_right = 44.0
+offset_bottom = 68.0
+text = "X"
+label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelCoordsY" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+offset_top = 65.0
+offset_right = 44.0
+offset_bottom = 100.0
+text = "Y"
+label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelCoordsZ" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+offset_top = 90.0
+offset_right = 44.0
+offset_bottom = 125.0
+text = "Z"
+label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelVelocity" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+offset_top = 115.0
+offset_right = 157.0
+offset_bottom = 150.0
+text = "velocity"
+label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelMessage" type="Label" parent="SubViewportContainer2/SubViewport/Gradient/HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -73.0
+offset_right = 255.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "This place was green once."
+label_settings = SubResource("LabelSettings_ikflq")
+
+[node name="Timer" type="Timer" parent="SubViewportContainer2/SubViewport/Gradient/HUD/LabelMessage"]
+
+[node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_78ckd")
+autoplay = true
+
+[node name="SFXWind" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
+stream = ExtResource("9_n8qub")
+volume_db = -40.0
+autoplay = true
+
+[connection signal="timeout" from="SubViewportContainer2/SubViewport/Gradient/HUD/Title/Timer" to="SubViewportContainer2/SubViewport/Gradient/HUD" method="_on_timer_timeout"]
