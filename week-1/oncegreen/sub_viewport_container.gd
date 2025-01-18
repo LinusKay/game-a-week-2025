@@ -19,3 +19,5 @@ func _process(delta: float) -> void:
 		if(_contrast > 0): _contrast -= 0.001
 		if(!_player.fov_lock): _player.fov_lock = true
 		_camera.fov += 0.02
+	if(_timer_game.time_left <= 0):
+		get_tree().quit()

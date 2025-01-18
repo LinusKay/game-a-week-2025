@@ -13,7 +13,9 @@ extends CanvasLayer
 
 var _messages = [
 	"This place was green once.",
-	"Nothing remains"
+	"Primaris, Tolaris, Orus orbit a dead planet.",
+	"This place was green once.",
+	""
 ]
 var _message_index = 0
 

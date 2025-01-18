@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=157 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://sub_viewport_container.gd" id="4_573nr"]
 [ext_resource type="Texture2D" uid="uid://ch3yg74ba327p" path="res://assets/image/spritesheets/heart_pumping_md_wht1.png" id="6_jij7q"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="6_lmfgs"]
+[ext_resource type="AudioStream" uid="uid://c8vqfk4hmnm61" path="res://assets/audio/sfx/66057__yewbic__ambience07_Internal.wav" id="6_xnhx0"]
 [ext_resource type="AudioStream" uid="uid://c3j4oua7cxmyf" path="res://assets/audio/sfx/talking choppy 2.mp3" id="7_g48rk"]
+[ext_resource type="AudioStream" uid="uid://claqnsgik0om7" path="res://assets/audio/sfx/66015__yewbic__ambience06.wav" id="7_v5ky0"]
 [ext_resource type="AudioStream" uid="uid://2jb1kpgnxox1" path="res://assets/audio/sfx/talking choppy.mp3" id="9_1g726"]
 [ext_resource type="Texture2D" uid="uid://drfqowmcxy2ab" path="res://assets/image/spritesheets/polyfox2-transparent.png" id="9_kk7wg"]
 [ext_resource type="AudioStream" uid="uid://cglcfuwie8uf4" path="res://assets/audio/sfx/wind.wav" id="9_n8qub"]
@@ -1041,7 +1043,8 @@ radius = 9.00592
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6056, 3.09399, 154.619)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D"]
-stream = ExtResource("9_1g726")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.481)
+stream = ExtResource("6_xnhx0")
 volume_db = 10.0
 autoplay = true
 max_distance = 150.0
@@ -1053,7 +1056,8 @@ panning_strength = 0.31
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.566, 3.09399, 60.2353)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D2"]
-stream = ExtResource("7_g48rk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.181, 0, 0)
+stream = ExtResource("7_v5ky0")
 volume_db = 10.0
 unit_size = 16.13
 max_db = 6.0
@@ -1149,8 +1153,10 @@ material = SubResource("ShaderMaterial_tusk7")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -1170,6 +1176,7 @@ follow_viewport_enabled = true
 script = ExtResource("6_lmfgs")
 
 [node name="HUDHeart" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 position = Vector2(155, 600)
 sprite_frames = SubResource("SpriteFrames_61cgb")
 frame_progress = 0.650183
@@ -1181,15 +1188,18 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dp7rh")
 
 [node name="HUDPlanet" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 position = Vector2(75, 575)
 sprite_frames = SubResource("SpriteFrames_kpkkl")
 
 [node name="HUDEye" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-position = Vector2(1000, 90)
-scale = Vector2(0.3, 0.3)
+visible = false
+position = Vector2(915, 581)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_fgk56")
 
 [node name="HUDXray" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 position = Vector2(1060, 550)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7xw0m")
@@ -1199,24 +1209,27 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -264.5
+offset_top = 2.0
 offset_right = 264.5
-offset_bottom = 23.0
+offset_bottom = 25.0
 grow_horizontal = 2
 text = "Visual Implant: Fatal Error"
 label_settings = SubResource("LabelSettings_ujwpk")
 
 [node name="LabelTimer" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 15.0
 offset_right = 40.0
 offset_bottom = 38.0
 label_settings = SubResource("LabelSettings_4awga")
 
 [node name="GameTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelTimer"]
-wait_time = 8.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
 [node name="LabelCoordsX" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 40.0
 offset_right = 44.0
 offset_bottom = 68.0
@@ -1224,6 +1237,7 @@ text = "X"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelCoordsY" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 65.0
 offset_right = 44.0
 offset_bottom = 100.0
@@ -1231,6 +1245,7 @@ text = "Y"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelCoordsZ" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 90.0
 offset_right = 44.0
 offset_bottom = 125.0
@@ -1238,6 +1253,7 @@ text = "Z"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelVelocity" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 115.0
 offset_right = 157.0
 offset_bottom = 150.0
@@ -1245,6 +1261,7 @@ text = "velocity"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelTemperature" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 offset_top = 145.0
 offset_right = 177.0
 offset_bottom = 173.0
@@ -1292,6 +1309,99 @@ vertical_alignment = 1
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -307.0
+offset_right = -21.0
+offset_bottom = -199.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -11.5
+offset_right = 26.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Offline
+"
+
+[node name="ColorRect2" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -177.0
+offset_right = -21.0
+offset_bottom = -69.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -11.5
+offset_right = 26.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Offline
+"
+
+[node name="ColorRect3" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -47.0
+offset_right = -21.0
+offset_bottom = 61.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -11.5
+offset_right = 26.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Offline
+"
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_fvkbk")
