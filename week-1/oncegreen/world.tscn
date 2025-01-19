@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=176 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
@@ -14,10 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://dm6ss7bskn3xo" path="res://assets/model/Cyberpunk Platform.glb" id="8_df66e"]
 [ext_resource type="Script" path="res://trigger_hud_video_display.gd" id="8_nk107"]
 [ext_resource type="AudioStream" uid="uid://2jb1kpgnxox1" path="res://assets/audio/sfx/talking choppy.mp3" id="9_1g726"]
+[ext_resource type="AudioStream" uid="uid://fh3753x57pod" path="res://assets/audio/sfx/66058__yewbic__ambience08_Internal.wav" id="9_ckfkj"]
 [ext_resource type="Material" uid="uid://dq0wcsx4e30gc" path="res://tower.tres" id="9_di6o3"]
 [ext_resource type="PackedScene" uid="uid://biof0m7d1i30r" path="res://assets/model/Cyberpunk Platform (1).glb" id="9_es7kr"]
 [ext_resource type="Texture2D" uid="uid://drfqowmcxy2ab" path="res://assets/image/spritesheets/polyfox2-transparent.png" id="9_kk7wg"]
 [ext_resource type="AudioStream" uid="uid://cglcfuwie8uf4" path="res://assets/audio/sfx/wind.wav" id="9_n8qub"]
+[ext_resource type="AudioStream" uid="uid://cw8ndkbtx16x0" path="res://assets/audio/sfx/33703__yewbic__ambience02.wav" id="10_hqcby"]
+[ext_resource type="AudioStream" uid="uid://cnor3jaklhrbf" path="res://assets/audio/sfx/metalcreaking.ogg" id="11_m6dlh"]
 [ext_resource type="PackedScene" uid="uid://w0y2yd20kt3t" path="res://assets/model/Roof Radar.glb" id="12_4i57h"]
 [ext_resource type="Texture2D" uid="uid://maxh15f8bd3p" path="res://assets/image/spritesheets/planet3_dark.png" id="12_46pw2"]
 [ext_resource type="FontFile" uid="uid://dr2fa64nbi0xu" path="res://assets/font/ARCADE_I.TTF" id="13_b3myn"]
@@ -965,8 +968,16 @@ use_collision = true
 size = Vector3(1495.8, 0.001, 1512)
 material = SubResource("StandardMaterial3D_woy3i")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.0505929, 0.998719, 0, -0.998719, -0.0505929, -16.0257, 9.61246, -317.735)
+light_energy = 16.0
+light_indirect_energy = 10.584
+light_volumetric_fog_energy = 0.0
+spot_range = 13.5278
+spot_angle = 21.7233
+
 [node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17664, 0.335725, -1.84705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3789, 0.335725, -326.011)
 script = ExtResource("1_jcrvo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player"]
@@ -985,6 +996,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63634, 0)
 
 [node name="Step" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.975, 1, 1.5)
+visible = false
 material_override = SubResource("StandardMaterial3D_ewt2r")
 use_collision = true
 size = Vector3(4, 3, 4)
@@ -1017,10 +1029,10 @@ radius = 8.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.592, -33.7457, -44.8027)
 radius = 9.00592
 
-[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+[node name="AmbienceAudio" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6056, 3.09399, 154.619)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/AmbienceAudio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.481)
 stream = ExtResource("6_xnhx0")
 volume_db = 10.0
@@ -1028,12 +1040,13 @@ autoplay = true
 max_distance = 150.0
 panning_strength = 0.31
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/Node3D"]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/AmbienceAudio"]
+visible = false
 
-[node name="Node3D2" type="Node3D" parent="SubViewportContainer/SubViewport"]
+[node name="AmbienceAudio2" type="Node3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.566, 3.09399, 60.2353)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D2"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/AmbienceAudio2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.181, 0, 0)
 stream = ExtResource("7_v5ky0")
 volume_db = 10.0
@@ -1043,7 +1056,53 @@ autoplay = true
 max_distance = 150.0
 panning_strength = 0.31
 
-[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/Node3D2"]
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/AmbienceAudio2"]
+visible = false
+
+[node name="AmbienceAudio3" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 888.009, 3.09399, -609.245)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/AmbienceAudio3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.481)
+stream = ExtResource("9_ckfkj")
+volume_db = 10.0
+unit_size = 53.23
+autoplay = true
+max_distance = 445.38
+panning_strength = 0.31
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/AmbienceAudio3"]
+visible = false
+
+[node name="AmbienceAudio4" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 888.009, 3.09399, 53.7424)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/AmbienceAudio4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.5325)
+stream = ExtResource("10_hqcby")
+volume_db = 10.0
+unit_size = 53.23
+autoplay = true
+max_distance = 445.38
+panning_strength = 0.31
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/AmbienceAudio4"]
+visible = false
+
+[node name="AmbienceAudio5" type="Node3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.9088, 158.012, 134.048)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/AmbienceAudio5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.2677)
+stream = ExtResource("11_m6dlh")
+volume_db = 10.0
+unit_size = 20.57
+autoplay = true
+max_distance = 445.38
+panning_strength = 0.31
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/AmbienceAudio5"]
+visible = false
 
 [node name="Tower" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65263, 168.285, 55.6022)
@@ -1143,6 +1202,7 @@ material = ExtResource("9_di6o3")
 
 [node name="Border" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1103.38, 28.0603, -118.579)
+visible = false
 use_collision = true
 size = Vector3(4, 63.6558, 1631.18)
 
@@ -1191,12 +1251,6 @@ size = Vector3(3, 2, 3)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_iihgv")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -0.0505929, 0.998719, 0, -0.998719, -0.0505929, -8.65476, 3, 0)
-light_energy = 8.54
-spot_range = 3.75566
-spot_angle = 25.0335
 
 [node name="fernplant" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_1qxn1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1094.65, 2.97995, 627.023)
@@ -1265,14 +1319,14 @@ visible = false
 position = Vector2(204, 157)
 scale = Vector2(1.82734, 1.4)
 sprite_frames = SubResource("SpriteFrames_eehe5")
-frame_progress = 0.630167
+frame_progress = 0.37441
 
 [node name="HUDEyes" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
 position = Vector2(1749.15, 78.2)
 scale = Vector2(0.625632, 0.36568)
 sprite_frames = SubResource("SpriteFrames_xssxa")
-frame_progress = 0.950131
+frame_progress = 0.0958032
 
 [node name="HUDPlanets" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
 z_as_relative = false
@@ -1507,10 +1561,11 @@ loop = true
 
 [node name="VideoChangeTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus"]
 one_shot = true
-autostart = true
 
 [node name="AudioStreamPlayerFocus" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus"]
 volume_db = -10.0
+
+[node name="HUDAudio" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 
 [node name="SubViewportContainer4" type="SubViewportContainer" parent="."]
 visible = false
@@ -1527,6 +1582,7 @@ render_target_update_mode = 0
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_fvkbk")
+volume_db = -80.0
 autoplay = true
 
 [node name="SFXWind" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]

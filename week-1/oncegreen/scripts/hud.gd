@@ -13,6 +13,9 @@ extends CanvasLayer
 @onready var _sfx_dying_talkingchoppy = $"../../../AudioBackgroundMusic/SFXTalkingChoppy"
 @onready var _sfx_dying_talkingchoppy2 = $"../../../AudioBackgroundMusic/SFXTalkingChoppy2"
 
+@onready var _ui_sfx1 = preload("res://assets/audio/sfx/TF_GUI-Sound-11.ogg")
+@onready var _ui_sfx2 = preload("res://assets/audio/sfx/TF_Meep.ogg")
+
 var _logs = [
 	["\nPlanet: Nahboris", 5],
 	["\nRShock: 0138", 1],
@@ -160,24 +163,43 @@ func _process(delta: float) -> void:
 	$LabelMessage.text = _messages[_message_index][0]
 	
 	$LabelImplantError.text = "Visual Implant: Fatal Error: " + str(round($LabelTimer/GameTimer.time_left))
-	
+
 	if($LabelTimer/GameTimer.time_left < 280):
 		$HUDXray.show()	
 	if($LabelTimer/GameTimer.time_left < 255):
-		$LabelImplantError.show()
+		if(!$LabelImplantError.is_visible_in_tree()):
+			$LabelImplantError.show()	
+			$HUDAudio.stream = _ui_sfx2
+			$HUDAudio.play()
 	var _video_popup = 200
 	if($LabelTimer/GameTimer.time_left < _video_popup):
-		$VideoStreamPlayer.show()		
+		if(!$VideoStreamPlayer.is_visible_in_tree()):
+			$VideoStreamPlayer.show()		
+			$HUDAudio.stream = _ui_sfx1
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < _video_popup - 1):
-		$VideoStreamPlayer2.show()
+		if(!$VideoStreamPlayer2.is_visible_in_tree()):
+			$VideoStreamPlayer2.show()	
+			$HUDAudio.stream = _ui_sfx1
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < _video_popup - 2):
-		$VideoStreamPlayer3.show()
+		if(!$VideoStreamPlayer3.is_visible_in_tree()):
+			$VideoStreamPlayer3.show()	
+			$HUDAudio.stream = _ui_sfx1
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < _video_popup - 3):
-		$VideoStreamPlayer4.show()
+		if(!$VideoStreamPlayer4.is_visible_in_tree()):
+			$VideoStreamPlayer4.show()	
+			$HUDAudio.stream = _ui_sfx1
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < _video_popup - 4):
-		$VideoStreamPlayer5.show()	
+		if(!$VideoStreamPlayer5.is_visible_in_tree()):
+			$VideoStreamPlayer5.show()		
+			$HUDAudio.stream = _ui_sfx1
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < 120):
-		$VideoStreamPlayerFocus.show()
+		$VideoStreamPlayerFocus.show()	
+		$VideoStreamPlayerFocus/VideoChangeTimer.start()
 	if($LabelTimer/GameTimer.time_left < 60):
 		$HUDPlanets.speed_scale = 1.5
 		if(!_sfx_dying_talkingchoppy.playing):
