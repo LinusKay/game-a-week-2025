@@ -199,7 +199,8 @@ func _process(delta: float) -> void:
 			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < 120):
 		$VideoStreamPlayerFocus.show()	
-		$VideoStreamPlayerFocus/VideoChangeTimer.start()
+		if($VideoStreamPlayerFocus/VideoChangeTimer.is_stopped()):
+			$VideoStreamPlayerFocus/VideoChangeTimer.start()
 	if($LabelTimer/GameTimer.time_left < 60):
 		$HUDPlanets.speed_scale = 1.5
 		if(!_sfx_dying_talkingchoppy.playing):
