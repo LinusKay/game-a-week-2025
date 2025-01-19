@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=173 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
@@ -16,14 +16,11 @@
 [ext_resource type="AudioStream" uid="uid://2jb1kpgnxox1" path="res://assets/audio/sfx/talking choppy.mp3" id="9_1g726"]
 [ext_resource type="Material" uid="uid://dq0wcsx4e30gc" path="res://tower.tres" id="9_di6o3"]
 [ext_resource type="PackedScene" uid="uid://biof0m7d1i30r" path="res://assets/model/Cyberpunk Platform (1).glb" id="9_es7kr"]
-[ext_resource type="Texture2D" uid="uid://n6pdp5ti5k67" path="res://assets/image/texture/metall001-new-tileable.png" id="9_j135y"]
 [ext_resource type="Texture2D" uid="uid://drfqowmcxy2ab" path="res://assets/image/spritesheets/polyfox2-transparent.png" id="9_kk7wg"]
 [ext_resource type="AudioStream" uid="uid://cglcfuwie8uf4" path="res://assets/audio/sfx/wind.wav" id="9_n8qub"]
-[ext_resource type="PackedScene" uid="uid://dqomgog5mppsv" path="res://assets/model/Grass.glb" id="11_q6m2v"]
 [ext_resource type="PackedScene" uid="uid://w0y2yd20kt3t" path="res://assets/model/Roof Radar.glb" id="12_4i57h"]
 [ext_resource type="Texture2D" uid="uid://maxh15f8bd3p" path="res://assets/image/spritesheets/planet3_dark.png" id="12_46pw2"]
 [ext_resource type="FontFile" uid="uid://dr2fa64nbi0xu" path="res://assets/font/ARCADE_I.TTF" id="13_b3myn"]
-[ext_resource type="Texture2D" uid="uid://cbc04cp3ii6oj" path="res://assets/image/spritesheets/Eye_dilate.png" id="13_btcpx"]
 [ext_resource type="AudioStream" uid="uid://cb41wvq1mtaa4" path="res://assets/audio/music/knockknock.mp3" id="13_fvkbk"]
 [ext_resource type="Texture2D" uid="uid://cdyl4h7b0ihq3" path="res://assets/image/spritesheets/xray.png" id="14_ve7v6"]
 [ext_resource type="Texture2D" uid="uid://c3bxcgf7qvxqw" path="res://assets/image/ui/Elements-02-export.png" id="15_m2txq"]
@@ -36,7 +33,14 @@
 [ext_resource type="VideoStream" path="res://assets/video/1448735-sd_640_338_24fps.ogv" id="21_r3xnl"]
 [ext_resource type="VideoStream" path="res://assets/video/3173312-sd_426_240_30fps.ogv" id="22_s108m"]
 [ext_resource type="VideoStream" path="res://assets/video/1826710-sd_640_360_24fps.ogv" id="23_iu178"]
+[ext_resource type="Texture2D" uid="uid://bggb0paoyq0bf" path="res://assets/image/spritesheets/red.png" id="23_oxqe5"]
+[ext_resource type="Texture2D" uid="uid://d1xr7k7fjwsu1" path="res://assets/image/spritesheets/R.png" id="23_tdo7e"]
+[ext_resource type="PackedScene" uid="uid://dqt0uwcbrab05" path="res://assets/model/fernplant.glb" id="25_1qxn1"]
+[ext_resource type="AudioStream" uid="uid://dp3icdq4fbi4u" path="res://assets/audio/sfx/underwater_or_space_engine.ogg" id="30_nn1nc"]
+[ext_resource type="AudioStream" uid="uid://jdcrfae7y05e" path="res://assets/audio/sfx/amb_mountains.ogg" id="30_ppjhf"]
+[ext_resource type="AudioStream" uid="uid://ynwvoik5dpbs" path="res://assets/audio/sfx/LavaLoop.wav" id="31_4w2yg"]
 [ext_resource type="Shader" path="res://shader/glitch.gdshader" id="31_hkdik"]
+[ext_resource type="Texture2D" uid="uid://d3vofpfkq03gh" path="res://assets/image/spritesheets/planets_spritesheet.png" id="35_eiigi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_134gy"]
 shader = ExtResource("1_dfebx")
@@ -80,12 +84,6 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewt2r"]
 albedo_color = Color(0.964964, 0.688455, 0.737447, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5web7"]
-albedo_texture = ExtResource("9_j135y")
-
-[sub_resource type="BoxMesh" id="BoxMesh_j0s1v"]
-material = SubResource("StandardMaterial3D_5web7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iihgv"]
 size = Vector3(3, 2, 3)
@@ -312,266 +310,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5crd3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q2n67"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(0, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6ys0"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(640, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxr4p"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(1280, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rviqx"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(1920, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aau2x"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(2560, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_didbk"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(3200, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lavip"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(3840, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m18dc"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(4480, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwfar"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(5120, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fulk"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(5760, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1pdta"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(6400, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5t5b6"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(7040, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jma50"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(7680, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_evwgo"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(8320, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5aqw"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(8960, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdts0"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(9600, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_puquk"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(10240, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4s8w1"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(10880, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x243b"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(11520, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gklc"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(12160, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_prt20"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(12800, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3nl8"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(13440, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omfe6"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(14080, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ien0h"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(14720, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcyb4"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(15360, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lraxw"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(16000, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbp6b"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(16640, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mm4cm"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(17280, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m6c4b"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(17920, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wq4n"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(18560, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do3b4"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(19200, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_crih5"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(19840, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8a5s"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(20480, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gx5ay"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(21120, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vce33"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(21760, 0, 640, 366)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_agd3g"]
-atlas = ExtResource("13_btcpx")
-region = Rect2(22400, 0, 640, 366)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fgk56"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q2n67")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s6ys0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hxr4p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rviqx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aau2x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_didbk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lavip")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m18dc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jwfar")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7fulk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1pdta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5t5b6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jma50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evwgo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5aqw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jdts0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_puquk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4s8w1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x243b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5gklc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_prt20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e3nl8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omfe6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ien0h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wcyb4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lraxw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbp6b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mm4cm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m6c4b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7wq4n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do3b4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_crih5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8a5s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gx5ay")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vce33")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_agd3g")
 }],
 "loop": true,
 "name": &"default",
@@ -965,6 +703,205 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgge6"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36jsl"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f08bb"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13wqd"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u42ew"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re0s1"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45hcb"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43vm8"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvgku"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs5dq"]
+atlas = ExtResource("23_oxqe5")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eehe5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgge6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36jsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f08bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13wqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u42ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re0s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45hcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43vm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvgku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs5dq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc6yr"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(0, 0, 480, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83jnd"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(480, 0, 480, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f70n0"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(960, 0, 480, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rcwp"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(1440, 0, 480, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6caq"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(1920, 0, 480, 338)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_102fm"]
+atlas = ExtResource("23_tdo7e")
+region = Rect2(2400, 0, 480, 338)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xssxa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc6yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83jnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f70n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rcwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6caq")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_102fm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycgew"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph78v"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(1280, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxnet"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(2560, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haowp"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(3840, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j41x"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(5120, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su0m6"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(6400, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niylb"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(7680, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bco55"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(8960, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlofq"]
+atlas = ExtResource("35_eiigi")
+region = Rect2(10240, 0, 1280, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bn7yk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycgew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph78v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxnet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haowp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j41x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su0m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niylb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bco55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlofq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ujwpk"]
 font = ExtResource("13_b3myn")
 font_size = 20
@@ -1063,9 +1000,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 10.0675)
 material_override = SubResource("StandardMaterial3D_ewt2r")
 use_collision = true
 size = Vector3(4, 4, 4)
-
-[node name="Orb" type="CSGSphere3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87324, 4.3865)
 
 [node name="Orb3" type="CSGSphere3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 805.628, 963.353, -1256.08)
@@ -1207,12 +1141,8 @@ transform = Transform3D(0.0701159, -0.304212, -0.950021, 0.124735, 0.947563, -0.
 size = Vector3(136, 20, 18.0913)
 material = ExtResource("9_di6o3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Tower"]
-mesh = SubResource("BoxMesh_j0s1v")
-
 [node name="Border" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1103.38, 28.0603, -118.579)
-visible = false
 use_collision = true
 size = Vector3(4, 63.6558, 1631.18)
 
@@ -1234,23 +1164,24 @@ size = Vector3(4, 63.6558, 1631.18)
 [node name="CommPlatform" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
 transform = Transform3D(-2.89642, 0, 0.781514, 0, 3, 0, -0.781514, 0, -2.89642, 35.0459, 41.0266, 45.0048)
 
-[node name="CommPlatform2" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
-transform = Transform3D(-2.99232, 0, 0.214492, 0, 3, 0, -0.214492, 0, -2.99232, 1.99167, 67.5169, 50.3066)
+[node name="CommPlatform2" parent="SubViewportContainer/SubViewport/CommPlatform" instance=ExtResource("8_df66e")]
+transform = Transform3D(0.981627, 0, 0.190809, 0, 1, 0, -0.190809, 0, 0.981627, 10.1773, 8.83011, -4.57649)
 
-[node name="CommPlatform6" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
-transform = Transform3D(-6.98209, 0, 0.500481, 0, 7, 0, -0.500481, 0, -6.98209, 102.942, 67.5169, 106.297)
+[node name="CommPlatform6" parent="SubViewportContainer/SubViewport/CommPlatform" instance=ExtResource("8_df66e")]
+transform = Transform3D(2.29046, 0, 0.445221, 0, 2.33333, 0, -0.445221, 0, 2.29046, -27.1729, 8.83011, -13.8295)
 
-[node name="CommPlatform3" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
-transform = Transform3D(13.3052, 0, 6.92623, 0, 15, 0, -6.92623, 0, 13.3052, -36.0584, 152.648, 63.9173)
+[node name="CommPlatform3" parent="SubViewportContainer/SubViewport/CommPlatform" instance=ExtResource("9_es7kr")]
+transform = Transform3D(-3.68049, 0, -3.38438, 0, 5, 0, 3.38438, 0, -3.68049, 21.2408, 37.2072, -12.2608)
 
-[node name="CommPlatform5" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
-transform = Transform3D(-12.8385, 0, 21.4516, 0, 25, 0, -21.4516, 0, -12.8385, 108.361, 202.337, 103.538)
+[node name="CommPlatform5" parent="SubViewportContainer/SubViewport/CommPlatform" instance=ExtResource("9_es7kr")]
+transform = Transform3D(5.9945, 0, -5.78882, 0, 8.33333, 0, 5.78882, 0, 5.9945, -28.6774, 53.7703, -12.471)
 
-[node name="CommPlatform4" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
-transform = Transform3D(-15.3657, 0, 12.8022, 0, 20, 0, -12.8022, 0, -15.3657, 37.2788, 122.586, 37.662)
+[node name="CommPlatform4" parent="SubViewportContainer/SubViewport/CommPlatform" instance=ExtResource("9_es7kr")]
+transform = Transform3D(6.05672, 0, -2.78578, 0, 6.66667, 0, 2.78578, 0, 6.05672, -0.0809727, 27.1866, 2.557)
 
 [node name="TriggerHUDVideoDisplay" type="Area3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46029, 17.5989, 0)
+visible = false
 script = ExtResource("8_nk107")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay"]
@@ -1267,12 +1198,8 @@ light_energy = 8.54
 spot_range = 3.75566
 spot_angle = 25.0335
 
-[node name="Grass" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_q6m2v")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -133.781, 0.00050354, -550.747)
-visible = false
-
-[node name="Grass" parent="SubViewportContainer/SubViewport/Grass" instance=ExtResource("11_q6m2v")]
-transform = Transform3D(0.226651, 0, 0.973976, 0, 1, 0, -0.973976, 0, 0.226651, 1.54589, -0.350007, -1.39324)
+[node name="fernplant" parent="SubViewportContainer/SubViewport" instance=ExtResource("25_1qxn1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1094.65, 2.97995, 627.023)
 
 [node name="Radar" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_4i57h")]
 transform = Transform3D(-37.9788, 20.7215, 90.1567, -15.8251, 94.567, -28.4015, -91.1437, -25.0539, -32.6363, 455.754, -439.242, -660.429)
@@ -1293,6 +1220,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.999061)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
@@ -1319,13 +1247,8 @@ position = Vector2(155, 1025)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dp7rh")
 
-[node name="HUDEye" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-position = Vector2(915, 581)
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_fgk56")
-
 [node name="HUDXray" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 position = Vector2(1800, 975)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7xw0m")
@@ -1337,7 +1260,28 @@ position = Vector2(84, 975)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_kpkkl")
 
+[node name="HUDCross" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+position = Vector2(204, 157)
+scale = Vector2(1.82734, 1.4)
+sprite_frames = SubResource("SpriteFrames_eehe5")
+frame_progress = 0.630167
+
+[node name="HUDEyes" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+position = Vector2(1749.15, 78.2)
+scale = Vector2(0.625632, 0.36568)
+sprite_frames = SubResource("SpriteFrames_xssxa")
+frame_progress = 0.950131
+
+[node name="HUDPlanets" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+z_as_relative = false
+position = Vector2(370.091, 872.665)
+scale = Vector2(0.0748584, 0.0744595)
+sprite_frames = SubResource("SpriteFrames_bn7yk")
+
 [node name="LabelImplantError" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1392,8 +1336,11 @@ label_settings = SubResource("LabelSettings_vpkev")
 offset_top = 145.0
 offset_right = 177.0
 offset_bottom = 173.0
-text = "temp: 58c"
 label_settings = SubResource("LabelSettings_vpkev")
+
+[node name="LabelLogTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelTemperature"]
+one_shot = true
+autostart = true
 
 [node name="LabelMessage" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
@@ -1412,6 +1359,7 @@ text = "This place was green once."
 label_settings = SubResource("LabelSettings_ikflq")
 
 [node name="LabelMessageTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelMessage"]
+wait_time = 52.0
 
 [node name="Title" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
 anchors_preset = 8
@@ -1437,6 +1385,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 position = Vector2(1283, 16)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("15_m2txq")
@@ -1468,6 +1417,10 @@ stream = ExtResource("19_vcsy4")
 autoplay = true
 loop = true
 
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayer"]
+stream = ExtResource("30_ppjhf")
+volume_db = -10.0
+
 [node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
 offset_left = 1580.0
@@ -1478,6 +1431,10 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("20_bt8k5")
 autoplay = true
 loop = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayer2"]
+stream = ExtResource("30_nn1nc")
+volume_db = -10.0
 
 [node name="VideoStreamPlayer3" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
@@ -1490,6 +1447,10 @@ stream = ExtResource("21_r3xnl")
 autoplay = true
 loop = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayer3"]
+stream = ExtResource("31_4w2yg")
+volume_db = -10.0
+
 [node name="VideoStreamPlayer4" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
 offset_left = 29.0
@@ -1500,6 +1461,10 @@ scale = Vector2(0.75, 0.75)
 stream = ExtResource("22_s108m")
 autoplay = true
 loop = true
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayer4"]
+stream = ExtResource("31_4w2yg")
+volume_db = -10.0
 
 [node name="VideoStreamPlayer5" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
@@ -1518,6 +1483,10 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("23_iu178")
 autoplay = true
 loop = true
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayer5"]
+stream = ExtResource("30_ppjhf")
+volume_db = -10.0
 
 [node name="VideoStreamPlayerFocus" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
@@ -1540,11 +1509,24 @@ loop = true
 one_shot = true
 autostart = true
 
-[node name="Sprite2D4" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+[node name="AudioStreamPlayerFocus" type="AudioStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus"]
+volume_db = -10.0
+
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_c76ys")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer4"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_fvkbk")
-volume_db = -80.0
 autoplay = true
 
 [node name="SFXWind" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
@@ -1562,17 +1544,8 @@ stream = ExtResource("9_1g726")
 [node name="SFXTalkingChoppy2" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
 stream = ExtResource("7_g48rk")
 
-[node name="SubViewportContainer4" type="SubViewportContainer" parent="."]
-material = SubResource("ShaderMaterial_c76ys")
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer4"]
-size = Vector2i(1920, 1080)
-
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" to="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" method="_on_body_entered"]
+[connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelTemperature/LabelLogTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_log_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_message_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD/LabelMessage" method="_on_label_message_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_title_timer_timeout"]

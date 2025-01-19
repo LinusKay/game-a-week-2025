@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(_timer_game.time_left < 8):
+	if(_timer_game.time_left < 15):
 		material.set_shader_parameter("u_contrast", _contrast)
 		_glitch_shader.material.set_shader_parameter("shake_rate", 1)
 		if(_contrast > 0): _contrast -= 0.002
