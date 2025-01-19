@@ -1,31 +1,49 @@
-[gd_scene load_steps=157 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=180 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
 [ext_resource type="Texture2D" uid="uid://bbpfrl8nb8a2k" path="res://shader/assets/palette_rising_sun.png" id="2_vhckx"]
 [ext_resource type="Texture2D" uid="uid://d2q0t4cjcym6o" path="res://shader/assets/bayer16tile2.png" id="3_1usvs"]
-[ext_resource type="Script" path="res://sub_viewport_container.gd" id="4_573nr"]
+[ext_resource type="Script" path="res://scripts/sub_viewport_container.gd" id="4_573nr"]
+[ext_resource type="Texture2D" uid="uid://db1lyr0owe8b" path="res://assets/image/texture/rock_weathered_10.png" id="5_5tgxl"]
 [ext_resource type="Texture2D" uid="uid://ch3yg74ba327p" path="res://assets/image/spritesheets/heart_pumping_md_wht1.png" id="6_jij7q"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="6_lmfgs"]
 [ext_resource type="AudioStream" uid="uid://c8vqfk4hmnm61" path="res://assets/audio/sfx/66057__yewbic__ambience07_Internal.wav" id="6_xnhx0"]
 [ext_resource type="AudioStream" uid="uid://c3j4oua7cxmyf" path="res://assets/audio/sfx/talking choppy 2.mp3" id="7_g48rk"]
 [ext_resource type="AudioStream" uid="uid://claqnsgik0om7" path="res://assets/audio/sfx/66015__yewbic__ambience06.wav" id="7_v5ky0"]
+[ext_resource type="PackedScene" uid="uid://dm6ss7bskn3xo" path="res://assets/model/Cyberpunk Platform.glb" id="8_df66e"]
+[ext_resource type="Script" path="res://trigger_hud_video_display.gd" id="8_nk107"]
 [ext_resource type="AudioStream" uid="uid://2jb1kpgnxox1" path="res://assets/audio/sfx/talking choppy.mp3" id="9_1g726"]
+[ext_resource type="Material" uid="uid://dq0wcsx4e30gc" path="res://tower.tres" id="9_di6o3"]
+[ext_resource type="PackedScene" uid="uid://biof0m7d1i30r" path="res://assets/model/Cyberpunk Platform (1).glb" id="9_es7kr"]
+[ext_resource type="Texture2D" uid="uid://n6pdp5ti5k67" path="res://assets/image/texture/metall001-new-tileable.png" id="9_j135y"]
 [ext_resource type="Texture2D" uid="uid://drfqowmcxy2ab" path="res://assets/image/spritesheets/polyfox2-transparent.png" id="9_kk7wg"]
 [ext_resource type="AudioStream" uid="uid://cglcfuwie8uf4" path="res://assets/audio/sfx/wind.wav" id="9_n8qub"]
+[ext_resource type="PackedScene" uid="uid://dqomgog5mppsv" path="res://assets/model/Grass.glb" id="11_q6m2v"]
+[ext_resource type="PackedScene" uid="uid://w0y2yd20kt3t" path="res://assets/model/Roof Radar.glb" id="12_4i57h"]
 [ext_resource type="Texture2D" uid="uid://maxh15f8bd3p" path="res://assets/image/spritesheets/planet3_dark.png" id="12_46pw2"]
 [ext_resource type="FontFile" uid="uid://dr2fa64nbi0xu" path="res://assets/font/ARCADE_I.TTF" id="13_b3myn"]
 [ext_resource type="Texture2D" uid="uid://cbc04cp3ii6oj" path="res://assets/image/spritesheets/Eye_dilate.png" id="13_btcpx"]
 [ext_resource type="AudioStream" uid="uid://cb41wvq1mtaa4" path="res://assets/audio/music/knockknock.mp3" id="13_fvkbk"]
 [ext_resource type="Texture2D" uid="uid://cdyl4h7b0ihq3" path="res://assets/image/spritesheets/xray.png" id="14_ve7v6"]
+[ext_resource type="Texture2D" uid="uid://c3bxcgf7qvxqw" path="res://assets/image/ui/Elements-02-export.png" id="15_m2txq"]
+[ext_resource type="Texture2D" uid="uid://bv5heyolbfl5m" path="res://assets/image/ui/Elements-03-export.png" id="16_4hffj"]
+[ext_resource type="PackedScene" uid="uid://bawa0sdjctv0s" path="res://assets/model/Cable Long.glb" id="16_y32vl"]
 [ext_resource type="AudioStream" uid="uid://dhjukua7s8noj" path="res://assets/audio/sfx/alienradio.mp3" id="17_djh5j"]
+[ext_resource type="Texture2D" uid="uid://cys0ge1a0ry30" path="res://assets/image/ui/Elements-04-export.png" id="17_qgjld"]
+[ext_resource type="VideoStream" path="res://assets/video/852419-sd_640_360_24fps.ogv" id="19_vcsy4"]
+[ext_resource type="VideoStream" path="res://assets/video/855240-sd_640_360_25fps.ogv" id="20_bt8k5"]
+[ext_resource type="VideoStream" path="res://assets/video/1448735-sd_640_338_24fps.ogv" id="21_r3xnl"]
+[ext_resource type="VideoStream" path="res://assets/video/3173312-sd_426_240_30fps.ogv" id="22_s108m"]
+[ext_resource type="VideoStream" path="res://assets/video/1826710-sd_640_360_24fps.ogv" id="23_iu178"]
+[ext_resource type="Shader" path="res://shader/glitch.gdshader" id="31_hkdik"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_134gy"]
 shader = ExtResource("1_dfebx")
 shader_parameter/u_bit_depth = 64
 shader_parameter/u_contrast = 1.0
-shader_parameter/u_offset = -0.2
-shader_parameter/u_dither_size = 1
+shader_parameter/u_offset = -0.1
+shader_parameter/u_dither_size = 2
 shader_parameter/u_dither_tex = ExtResource("3_1usvs")
 shader_parameter/u_color_tex = ExtResource("2_vhckx")
 
@@ -47,6 +65,13 @@ volumetric_fog_length = 133.42
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndej1"]
 albedo_color = Color(0.34902, 0.419608, 0.321569, 1)
+albedo_texture = ExtResource("5_5tgxl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woy3i"]
+albedo_texture = ExtResource("5_5tgxl")
+normal_texture = ExtResource("5_5tgxl")
+heightmap_enabled = true
+heightmap_texture = ExtResource("5_5tgxl")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5vp7g"]
 
@@ -55,6 +80,15 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewt2r"]
 albedo_color = Color(0.964964, 0.688455, 0.737447, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5web7"]
+albedo_texture = ExtResource("9_j135y")
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0s1v"]
+material = SubResource("StandardMaterial3D_5web7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iihgv"]
+size = Vector3(3, 2, 3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tusk7"]
 shader = ExtResource("1_dfebx")
@@ -278,154 +312,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5crd3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjbgx"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1hrh"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1br7u"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ah5x"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4hjg"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xg8p3"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gbro"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufxuj"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8od0b"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6ieu"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4l717"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xh8h8"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1408, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v58ns"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1536, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o072i"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1664, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_robuw"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1792, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6qow"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(1920, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2yyw"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(2048, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rswik"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(2176, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sb5r0"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(2304, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c33fs"]
-atlas = ExtResource("12_46pw2")
-region = Rect2(2432, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kpkkl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vjbgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1hrh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1br7u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7ah5x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o4hjg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xg8p3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5gbro")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ufxuj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8od0b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6ieu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4l717")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xh8h8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v58ns")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o072i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_robuw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6qow")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2yyw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rswik")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sb5r0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c33fs")
 }],
 "loop": true,
 "name": &"default",
@@ -931,6 +817,154 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjbgx"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1hrh"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1br7u"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ah5x"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4hjg"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg8p3"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gbro"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufxuj"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8od0b"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6ieu"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l717"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh8h8"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v58ns"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o072i"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_robuw"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6qow"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(1920, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2yyw"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2048, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rswik"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2176, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb5r0"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2304, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33fs"]
+atlas = ExtResource("12_46pw2")
+region = Rect2(2432, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kpkkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjbgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1hrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1br7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ah5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4hjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg8p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gbro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufxuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8od0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6ieu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l717")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh8h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v58ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o072i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_robuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6qow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2yyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rswik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb5r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33fs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ujwpk"]
 font = ExtResource("13_b3myn")
 font_size = 20
@@ -952,6 +986,14 @@ font = ExtResource("13_b3myn")
 font_size = 30
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c76ys"]
+shader = ExtResource("31_hkdik")
+shader_parameter/shake_power = 0.001
+shader_parameter/shake_rate = 0.087
+shader_parameter/shake_speed = 1.0
+shader_parameter/shake_block_size = 1.0
+shader_parameter/shake_color_rate = 0.01
+
 [node name="world" type="Node3D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -963,12 +1005,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+stretch = true
 script = ExtResource("4_573nr")
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
@@ -979,13 +1022,14 @@ shadow_enabled = true
 environment = SubResource("Environment_yb1ff")
 
 [node name="Floor" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.034, 0, 140.406)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 360.086, 0.579994, -110.46)
 material_override = SubResource("StandardMaterial3D_ndej1")
 use_collision = true
-size = Vector3(907.254, 0.001, 798.771)
+size = Vector3(1495.8, 0.001, 1512)
+material = SubResource("StandardMaterial3D_woy3i")
 
 [node name="Player" type="CharacterBody3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.793025, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17664, 0.335725, -1.84705)
 script = ExtResource("1_jcrvo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Player"]
@@ -1068,95 +1112,185 @@ panning_strength = 0.31
 [node name="CSGTorus3D" type="CSGTorus3D" parent="SubViewportContainer/SubViewport/Node3D2"]
 
 [node name="Tower" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 168.43, 55.712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65263, 168.285, 55.6022)
 use_collision = true
 size = Vector3(13, 348.242, 10)
-
-[node name="Tower2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.646, 169.449, 378.13)
-size = Vector3(42.292, 687.14, 10)
+material = ExtResource("9_di6o3")
 
 [node name="Tower3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.7156, 1.48001, 134.848)
 size = Vector3(13, 351.202, 10)
+material = ExtResource("9_di6o3")
 
 [node name="Tower4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -38.8232, -16.328, 15.2401)
 size = Vector3(13, 315.586, 10)
+material = ExtResource("9_di6o3")
 
 [node name="Tower5" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -35.584, 24.3747)
 size = Vector3(22, 277.074, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower6" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -25.5794, -114.621, 48.449)
 size = Vector3(22, 119, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower7" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 69.7072, -32.202, 110.349)
 size = Vector3(22, 283.839, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower8" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.999999, 0, 0.00122193, 0, 1, 0, -0.00122193, 0, 0.999999, 113.816, -12.431, 59.954)
 size = Vector3(22, 323.38, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower9" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.999999, 0, 0.00122193, 0, 1, 0, -0.00122193, 0, 0.999999, 109.997, -44.147, 179.285)
 size = Vector3(14.3579, 259.948, 9.61157)
+material = ExtResource("9_di6o3")
 
 [node name="Tower10" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.99262, 0.00123979, -0.121257, -1.23692e-05, 0.999949, 0.0101227, 0.121263, -0.0100465, 0.99257, -60.5838, -44.147, 163.768)
 size = Vector3(14.3579, 259.948, 9.61157)
+material = ExtResource("9_di6o3")
 
 [node name="Tower11" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.997655, 0.063975, -0.0243473, -0.0639559, 0.997952, 0.00156081, 0.0243973, 0, 0.999702, -3.25671, -11.983, 109.08)
 size = Vector3(16.9233, 324.526, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower12" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.76339, 0, -0.645938, 0, 1, 0, 0.645938, 0, 0.76339, -114.729, -121.035, 41.0657)
 size = Vector3(11.9814, 106.173, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower13" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.729, -157.621, 142.7)
 size = Vector3(11.9814, 33, 193)
+material = ExtResource("9_di6o3")
 
 [node name="Tower14" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.50219, 0, 0.864757, 0, 1, 0, -0.864757, 0, 0.50219, -41.0315, -156.971, 150.439)
 size = Vector3(11.9814, 33, 193)
+material = ExtResource("9_di6o3")
 
 [node name="Tower15" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(-0.348343, 0, 0.937367, 0, 1, 0, -0.937367, 0, -0.348343, 105.459, -156.971, 150.439)
 size = Vector3(11.9814, 33, 193)
+material = ExtResource("9_di6o3")
 
 [node name="Tower16" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.641584, 0, -0.767053, 0, 1, 0, 0.767053, 0, 0.641584, -114.729, -157.621, 83.531)
 size = Vector3(11.9814, 33, 193)
+material = ExtResource("9_di6o3")
 
 [node name="Tower17" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.76339, 0, -0.645938, 0, 1, 0, 0.645938, 0, 0.76339, -75.3141, -121.035, 82.982)
 size = Vector3(11.9814, 106.173, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower18" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.965597, -0.0260897, -0.258731, 0.0252007, 0.99966, -0.00675251, 0.258819, 0, 0.965926, 36.4134, -42.514, -1.244)
 size = Vector3(22, 263.215, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower19" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.838262, -0.183863, -0.513334, 0.0231921, 0.952604, -0.303327, 0.544775, 0.242362, 0.802796, -97.434, -164.003, -16.6026)
 size = Vector3(136, 20, 18.0913)
+material = ExtResource("9_di6o3")
 
 [node name="Tower20" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Tower"]
 transform = Transform3D(0.0701159, -0.304212, -0.950021, 0.124735, 0.947563, -0.294219, 0.98971, -0.0978712, 0.104385, -97.434, -159.165, -62.8026)
 size = Vector3(136, 20, 18.0913)
+material = ExtResource("9_di6o3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Tower"]
+mesh = SubResource("BoxMesh_j0s1v")
+
+[node name="Border" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1103.38, 28.0603, -118.579)
+visible = false
+use_collision = true
+size = Vector3(4, 63.6558, 1631.18)
+
+[node name="Border2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Border"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -803.446, 0, -740.17)
+use_collision = true
+size = Vector3(4, 63.6558, 1631.18)
+
+[node name="Border3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Border"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1474.89, 0, 33.1704)
+use_collision = true
+size = Vector3(4, 63.6558, 1631.18)
+
+[node name="Border4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/Border"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -777.226, -0.291504, 753.035)
+use_collision = true
+size = Vector3(4, 63.6558, 1631.18)
+
+[node name="CommPlatform" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
+transform = Transform3D(-2.89642, 0, 0.781514, 0, 3, 0, -0.781514, 0, -2.89642, 35.0459, 41.0266, 45.0048)
+
+[node name="CommPlatform2" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
+transform = Transform3D(-2.99232, 0, 0.214492, 0, 3, 0, -0.214492, 0, -2.99232, 1.99167, 67.5169, 50.3066)
+
+[node name="CommPlatform6" parent="SubViewportContainer/SubViewport" instance=ExtResource("8_df66e")]
+transform = Transform3D(-6.98209, 0, 0.500481, 0, 7, 0, -0.500481, 0, -6.98209, 102.942, 67.5169, 106.297)
+
+[node name="CommPlatform3" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
+transform = Transform3D(13.3052, 0, 6.92623, 0, 15, 0, -6.92623, 0, 13.3052, -36.0584, 152.648, 63.9173)
+
+[node name="CommPlatform5" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
+transform = Transform3D(-12.8385, 0, 21.4516, 0, 25, 0, -21.4516, 0, -12.8385, 108.361, 202.337, 103.538)
+
+[node name="CommPlatform4" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_es7kr")]
+transform = Transform3D(-15.3657, 0, 12.8022, 0, 20, 0, -12.8022, 0, -15.3657, 37.2788, 122.586, 37.662)
+
+[node name="TriggerHUDVideoDisplay" type="Area3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46029, 17.5989, 0)
+script = ExtResource("8_nk107")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(3, 2, 3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_iihgv")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.0505929, 0.998719, 0, -0.998719, -0.0505929, -8.65476, 3, 0)
+light_energy = 8.54
+spot_range = 3.75566
+spot_angle = 25.0335
+
+[node name="Grass" parent="SubViewportContainer/SubViewport" instance=ExtResource("11_q6m2v")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -133.781, 0.00050354, -550.747)
+visible = false
+
+[node name="Grass" parent="SubViewportContainer/SubViewport/Grass" instance=ExtResource("11_q6m2v")]
+transform = Transform3D(0.226651, 0, 0.973976, 0, 1, 0, -0.973976, 0, 0.226651, 1.54589, -0.350007, -1.39324)
+
+[node name="Radar" parent="SubViewportContainer/SubViewport" instance=ExtResource("12_4i57h")]
+transform = Transform3D(-37.9788, 20.7215, 90.1567, -15.8251, 94.567, -28.4015, -91.1437, -25.0539, -32.6363, 455.754, -439.242, -660.429)
+
+[node name="Radar2" parent="SubViewportContainer/SubViewport/Radar" instance=ExtResource("12_4i57h")]
+transform = Transform3D(0.676186, -0.158251, 0.719534, -0.105815, 0.94567, 0.307427, -0.729092, -0.284015, 0.622704, -2.86059, -0.000697136, 0.982899)
+
+[node name="Radar3" parent="SubViewportContainer/SubViewport/Radar" instance=ExtResource("12_4i57h")]
+transform = Transform3D(0.360114, -0.151989, 0.920444, -0.229746, 0.941804, 0.245402, -0.904176, -0.299841, 0.304238, -4.88356, 0.16752, 3.24028)
+
+[node name="Root Scene" parent="SubViewportContainer/SubViewport" instance=ExtResource("16_y32vl")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 113.195, 135.074, 105.061)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_tusk7")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -1168,7 +1302,7 @@ stretch = true
 transparent_bg = true
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="HUD" type="CanvasLayer" parent="SubViewportContainer2/SubViewport"]
@@ -1176,21 +1310,14 @@ follow_viewport_enabled = true
 script = ExtResource("6_lmfgs")
 
 [node name="HUDHeart" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-position = Vector2(155, 600)
+position = Vector2(155, 980)
 sprite_frames = SubResource("SpriteFrames_61cgb")
 frame_progress = 0.650183
 
 [node name="HUDPolyfox" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-position = Vector2(1050, 575)
+position = Vector2(155, 1025)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dp7rh")
-
-[node name="HUDPlanet" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-position = Vector2(75, 575)
-sprite_frames = SubResource("SpriteFrames_kpkkl")
 
 [node name="HUDEye" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
@@ -1199,10 +1326,16 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_fgk56")
 
 [node name="HUDXray" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-position = Vector2(1060, 550)
+position = Vector2(1800, 975)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_7xw0m")
+
+[node name="HUDPlanet" type="AnimatedSprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(84, 975)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_kpkkl")
 
 [node name="LabelImplantError" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
 anchors_preset = 5
@@ -1217,7 +1350,6 @@ text = "Visual Implant: Fatal Error"
 label_settings = SubResource("LabelSettings_ujwpk")
 
 [node name="LabelTimer" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 15.0
 offset_right = 40.0
 offset_bottom = 38.0
@@ -1229,7 +1361,6 @@ one_shot = true
 autostart = true
 
 [node name="LabelCoordsX" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 40.0
 offset_right = 44.0
 offset_bottom = 68.0
@@ -1237,7 +1368,6 @@ text = "X"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelCoordsY" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 65.0
 offset_right = 44.0
 offset_bottom = 100.0
@@ -1245,7 +1375,6 @@ text = "Y"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelCoordsZ" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 90.0
 offset_right = 44.0
 offset_bottom = 125.0
@@ -1253,7 +1382,6 @@ text = "Z"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelVelocity" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 115.0
 offset_right = 157.0
 offset_bottom = 150.0
@@ -1261,7 +1389,6 @@ text = "velocity"
 label_settings = SubResource("LabelSettings_vpkev")
 
 [node name="LabelTemperature" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
 offset_top = 145.0
 offset_right = 177.0
 offset_bottom = 173.0
@@ -1285,7 +1412,6 @@ text = "This place was green once."
 label_settings = SubResource("LabelSettings_ikflq")
 
 [node name="LabelMessageTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelMessage"]
-wait_time = 5.0
 
 [node name="Title" type="Label" parent="SubViewportContainer2/SubViewport/HUD"]
 anchors_preset = 8
@@ -1310,101 +1436,115 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="ColorRect" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -307.0
-offset_right = -21.0
-offset_bottom = -199.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+position = Vector2(1283, 16)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_m2txq")
+centered = false
+offset = Vector2(1050, 0)
 
-[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect"]
-layout_mode = 1
+[node name="Sprite2D2" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+position = Vector2(-289, 916)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_4hffj")
+centered = false
+offset = Vector2(1050, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
+position = Vector2(-288, 834)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_qgjld")
+centered = false
+offset = Vector2(1050, 0)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+offset_left = 1580.0
+offset_top = 171.0
+offset_right = 2220.0
+offset_bottom = 539.0
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("19_vcsy4")
+autoplay = true
+loop = true
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+offset_left = 1580.0
+offset_top = 431.0
+offset_right = 2220.0
+offset_bottom = 799.0
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("20_bt8k5")
+autoplay = true
+loop = true
+
+[node name="VideoStreamPlayer3" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+offset_left = 29.0
+offset_top = 196.0
+offset_right = 669.0
+offset_bottom = 564.0
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("21_r3xnl")
+autoplay = true
+loop = true
+
+[node name="VideoStreamPlayer4" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
+offset_left = 29.0
+offset_top = 409.0
+offset_right = 669.0
+offset_bottom = 777.0
+scale = Vector2(0.75, 0.75)
+stream = ExtResource("22_s108m")
+autoplay = true
+loop = true
+
+[node name="VideoStreamPlayer5" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.5
-offset_top = -11.5
-offset_right = 26.5
-offset_bottom = 11.5
+offset_left = 620.0
+offset_top = 156.0
+offset_right = 1260.0
+offset_bottom = 524.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Offline
-"
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("23_iu178")
+autoplay = true
+loop = true
 
-[node name="ColorRect2" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
+[node name="VideoStreamPlayerFocus" type="VideoStreamPlayer" parent="SubViewportContainer2/SubViewport/HUD"]
 visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -177.0
-offset_right = -21.0
-offset_bottom = -69.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 1, 1)
-
-[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect2"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.5
-offset_top = -11.5
-offset_right = 26.5
-offset_bottom = 11.5
+offset_left = -456.0
+offset_top = -280.0
+offset_right = 184.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Offline
-"
+scale = Vector2(1.5, 1.5)
+stream = ExtResource("23_iu178")
+loop = true
 
-[node name="ColorRect3" type="ColorRect" parent="SubViewportContainer2/SubViewport/HUD"]
-visible = false
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -213.0
-offset_top = -47.0
-offset_right = -21.0
-offset_bottom = 61.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 1, 1)
+[node name="VideoChangeTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus"]
+one_shot = true
+autostart = true
 
-[node name="LabelOffline" type="Label" parent="SubViewportContainer2/SubViewport/HUD/ColorRect3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.5
-offset_top = -11.5
-offset_right = 26.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Offline
-"
+[node name="Sprite2D4" type="Sprite2D" parent="SubViewportContainer2/SubViewport/HUD"]
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_fvkbk")
+volume_db = -80.0
 autoplay = true
 
 [node name="SFXWind" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
@@ -1422,7 +1562,19 @@ stream = ExtResource("9_1g726")
 [node name="SFXTalkingChoppy2" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
 stream = ExtResource("7_g48rk")
 
+[node name="SubViewportContainer4" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_c76ys")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer4"]
+size = Vector2i(1920, 1080)
+
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" to="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" method="_on_body_entered"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_message_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD/LabelMessage" method="_on_label_message_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_title_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_timer_timeout"]
+[connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus/VideoChangeTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_video_change_timer_timeout"]

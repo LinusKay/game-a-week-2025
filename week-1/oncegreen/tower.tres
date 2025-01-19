@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dq0wcsx4e30gc"]
+
+[ext_resource type="Shader" path="res://tower.gdshader" id="1_emjuh"]
+[ext_resource type="Texture2D" uid="uid://n6pdp5ti5k67" path="res://assets/image/texture/metall001-new-tileable.png" id="2_tcyfq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_emjuh")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/texture_albedo = ExtResource("2_tcyfq")
