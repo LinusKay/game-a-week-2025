@@ -4,7 +4,7 @@
 
 ## Game: ONCE GREEN
 
-!["Showcase image"](https://cdn.discordapp.com/attachments/1062581538719535114/1330409514633269290/Godot_v4.3-stable_win64_bytGhaw3AN.gif?ex=678e88aa&is=678d372a&hm=fb18ace5416269bf9dd96ea2857c90d7c1b3e29402b6703656e90917acfe875a)
+!["Showcase image"](/showcase/Godot_v4.3-stable_win64_bytGhaw3AN.gif)
 
 > The celestial dead calls. Planet Nahboris lays slain. Red Nahboris who spits fire and carries rust on its winds. 
 
