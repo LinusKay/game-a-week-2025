@@ -4,17 +4,12 @@
 
 ## Game: ONCE GREEN
 
-The celestial dead calls. 
+!["Showcase image"](https://cdn.discordapp.com/attachments/1062581538719535114/1330409514633269290/Godot_v4.3-stable_win64_bytGhaw3AN.gif?ex=678e88aa&is=678d372a&hm=fb18ace5416269bf9dd96ea2857c90d7c1b3e29402b6703656e90917acfe875a& "Showcase Image")
 
-Planet Nahboris lays slain. 
+> The celestial dead calls. Planet Nahboris lays slain. Red Nahboris who spits fire and carries rust on its winds. 
 
-Red Nahboris who spits fire and carries rust on its winds. 
+> Your body is damaged. The implants that once outclassed your flesh are shattered. Your vision is failing. 
 
-Your body is damaged. 
-
-The implants that once outclassed your flesh are shattered.
-
-Your vision is failing. 
 
 ## Discussion
 
@@ -30,9 +25,9 @@ Theme #1 for 2025 Game-A-Week was "One screen". Very open to interpretation, som
 I was mulling over how I could twist the prompt wording, to subvert expectation through word play. I wondered about alternatives to "screen", both in noun and verb, but it ended up being a "mishearing" of the prompt which inspired the concept.
 
 My raw "design notes" for this project are as below:
-- one screen - “once green”
-    - humans got too addicted to maximalist technology, and ruined the face of the earth
-    - explore a barren wasteland as your helmet HUD begins to slowly fail, glitching and overstimulating, trying to fit too much on one screen
+> - one screen - “once green”
+>   - humans got too addicted to maximalist technology, and ruined the face of the earth
+>   - explore a barren wasteland as your helmet HUD begins to slowly fail, glitching and overstimulating, trying to fit too much on one screen
     - “extreme body modifications, dangerous implants, and more interfaces than should fit on one screen. there was no end in sight.”
 
 ## Development
