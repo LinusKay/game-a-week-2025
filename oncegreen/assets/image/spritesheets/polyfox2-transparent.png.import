@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drfqowmcxy2ab"
 path.s3tc="res://.godot/imported/polyfox2-transparent.png-1e509cb6ce9468e9c1bdc5ca9309a69f.s3tc.ctex"
+path.etc2="res://.godot/imported/polyfox2-transparent.png-1e509cb6ce9468e9c1bdc5ca9309a69f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/image/spritesheets/polyfox2-transparent.png"
-dest_files=["res://.godot/imported/polyfox2-transparent.png-1e509cb6ce9468e9c1bdc5ca9309a69f.s3tc.ctex"]
+dest_files=["res://.godot/imported/polyfox2-transparent.png-1e509cb6ce9468e9c1bdc5ca9309a69f.s3tc.ctex", "res://.godot/imported/polyfox2-transparent.png-1e509cb6ce9468e9c1bdc5ca9309a69f.etc2.ctex"]
 
 [params]
 

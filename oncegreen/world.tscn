@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=178 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://w0y2yd20kt3t" path="res://assets/model/Roof Radar.glb" id="12_4i57h"]
 [ext_resource type="Texture2D" uid="uid://maxh15f8bd3p" path="res://assets/image/spritesheets/planet3_dark.png" id="12_46pw2"]
 [ext_resource type="FontFile" uid="uid://dr2fa64nbi0xu" path="res://assets/font/ARCADE_I.TTF" id="13_b3myn"]
-[ext_resource type="AudioStream" uid="uid://cb41wvq1mtaa4" path="res://assets/audio/music/knockknock.mp3" id="13_fvkbk"]
 [ext_resource type="Texture2D" uid="uid://cdyl4h7b0ihq3" path="res://assets/image/spritesheets/xray.png" id="14_ve7v6"]
 [ext_resource type="Texture2D" uid="uid://c3bxcgf7qvxqw" path="res://assets/image/ui/Elements-02-export.png" id="15_m2txq"]
 [ext_resource type="Texture2D" uid="uid://bv5heyolbfl5m" path="res://assets/image/ui/Elements-03-export.png" id="16_4hffj"]
@@ -44,6 +43,9 @@
 [ext_resource type="AudioStream" uid="uid://ynwvoik5dpbs" path="res://assets/audio/sfx/LavaLoop.wav" id="31_4w2yg"]
 [ext_resource type="Shader" path="res://shader/glitch.gdshader" id="31_hkdik"]
 [ext_resource type="Texture2D" uid="uid://d3vofpfkq03gh" path="res://assets/image/spritesheets/planets_spritesheet.png" id="35_eiigi"]
+[ext_resource type="AudioStream" uid="uid://tc5da3ftip37" path="res://assets/audio/music/knockknock.ogg" id="40_s5ohe"]
+[ext_resource type="Script" path="res://audio_background_music.gd" id="41_12y4o"]
+[ext_resource type="AudioStream" uid="uid://cxxeawmkfvf26" path="res://assets/audio/sfx/randomambience.ogg" id="43_1dajc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_134gy"]
 shader = ExtResource("1_dfebx")
@@ -1581,13 +1583,21 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_fvkbk")
-volume_db = -10.0
-autoplay = true
+stream = ExtResource("40_s5ohe")
+script = ExtResource("41_12y4o")
+
+[node name="MusicTimer" type="Timer" parent="AudioBackgroundMusic"]
+wait_time = 45.0
+one_shot = true
+autostart = true
 
 [node name="SFXWind" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
 stream = ExtResource("9_n8qub")
-volume_db = -40.0
+volume_db = -30.0
+autoplay = true
+
+[node name="SFXAmbience" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
+stream = ExtResource("43_1dajc")
 autoplay = true
 
 [node name="SFXAlienRadio" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
@@ -1604,6 +1614,7 @@ stream = ExtResource("7_g48rk")
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelTemperature/LabelLogTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_log_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_message_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelMessage/LabelMessageTimer" to="SubViewportContainer2/SubViewport/HUD/LabelMessage" method="_on_label_message_timer_timeout"]
-[connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_title_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_timer_timeout"]
+[connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_title_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus/VideoChangeTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_video_change_timer_timeout"]
+[connection signal="timeout" from="AudioBackgroundMusic/MusicTimer" to="AudioBackgroundMusic" method="_on_music_timer_timeout"]

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://da7xvdyiqdngp"
 path.s3tc="res://.godot/imported/Roof Antenna_Atlas.png-d2d4d36b305d108dd114b559b2c999fa.s3tc.ctex"
+path.etc2="res://.godot/imported/Roof Antenna_Atlas.png-d2d4d36b305d108dd114b559b2c999fa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/model/Roof Antenna_Atlas.png"
-dest_files=["res://.godot/imported/Roof Antenna_Atlas.png-d2d4d36b305d108dd114b559b2c999fa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Roof Antenna_Atlas.png-d2d4d36b305d108dd114b559b2c999fa.s3tc.ctex", "res://.godot/imported/Roof Antenna_Atlas.png-d2d4d36b305d108dd114b559b2c999fa.etc2.ctex"]
 
 [params]
 

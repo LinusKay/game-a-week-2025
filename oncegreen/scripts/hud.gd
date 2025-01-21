@@ -15,6 +15,7 @@ extends CanvasLayer
 
 @onready var _ui_sfx1 = preload("res://assets/audio/sfx/TF_GUI-Sound-11.ogg")
 @onready var _ui_sfx2 = preload("res://assets/audio/sfx/TF_Meep.ogg")
+@onready var _ui_sfx_log = preload("res://assets/audio/sfx/Granular Synthesis BTN Sound.wav")
 
 var _logs = [
 	["\nPlanet: Nahboris", 5],
@@ -165,7 +166,10 @@ func _process(delta: float) -> void:
 	$LabelImplantError.text = "Visual Implant: Fatal Error: " + str(round($LabelTimer/GameTimer.time_left))
 
 	if($LabelTimer/GameTimer.time_left < 280):
-		$HUDXray.show()	
+		if(!$HUDXray.is_visible_in_tree()):
+			$HUDXray.show()	
+			$HUDAudio.stream = _ui_sfx2
+			$HUDAudio.play()
 	if($LabelTimer/GameTimer.time_left < 255):
 		if(!$LabelImplantError.is_visible_in_tree()):
 			$LabelImplantError.show()	
@@ -252,3 +256,5 @@ func _on_label_log_timer_timeout() -> void:
 		$LabelTemperature.text += _logs[_log_index][0]
 		$LabelTemperature/LabelLogTimer.start(_logs[_log_index][1])
 		_log_index += 1
+		$HUDAudio.stream = _ui_sfx_log
+		$HUDAudio.play()

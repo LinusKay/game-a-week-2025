@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbpfrl8nb8a2k"
 path.s3tc="res://.godot/imported/palette_rising_sun.png-4382f3beb134d639e1515def48cdb86f.s3tc.ctex"
+path.etc2="res://.godot/imported/palette_rising_sun.png-4382f3beb134d639e1515def48cdb86f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://shader/assets/palette_rising_sun.png"
-dest_files=["res://.godot/imported/palette_rising_sun.png-4382f3beb134d639e1515def48cdb86f.s3tc.ctex"]
+dest_files=["res://.godot/imported/palette_rising_sun.png-4382f3beb134d639e1515def48cdb86f.s3tc.ctex", "res://.godot/imported/palette_rising_sun.png-4382f3beb134d639e1515def48cdb86f.etc2.ctex"]
 
 [params]
 

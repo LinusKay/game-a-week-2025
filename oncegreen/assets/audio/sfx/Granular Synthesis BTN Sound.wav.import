@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lknor0l0gwex"
+path="res://.godot/imported/Granular Synthesis BTN Sound.wav-adefaf0d9a3aac43b535f74be077491e.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Granular Synthesis BTN Sound.wav"
+dest_files=["res://.godot/imported/Granular Synthesis BTN Sound.wav-adefaf0d9a3aac43b535f74be077491e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
