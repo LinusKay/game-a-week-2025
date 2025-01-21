@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg4b735xno1pm"
+path="res://.godot/imported/talking choppy.ogg-714f93be8cc6a7fd651ae21d7de34f72.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/talking choppy.ogg"
+dest_files=["res://.godot/imported/talking choppy.ogg-714f93be8cc6a7fd651ae21d7de34f72.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

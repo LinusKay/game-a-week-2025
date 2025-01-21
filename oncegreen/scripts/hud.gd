@@ -1,15 +1,11 @@
 extends CanvasLayer
 
-@onready var _heart_sprite = $HUDHeart
-@onready var _polyfox_sprite = $HUDPolyfox
 @onready var _planet_sprite = $HUDPlanet
-@onready var _eyes_sprite = $HUDEyes
 @onready var _xray_sprite = $HUDXray
 @onready var _planets_sprite = $HUDPlanets
 @onready var _cross_sprite = $HUDCross
 
 @onready var _player = $"../../../SubViewportContainer/SubViewport/Player"
-@onready var _sfx_dying_radio = $"../../../AudioBackgroundMusic/SFXAlienRadio"
 @onready var _sfx_dying_talkingchoppy = $"../../../AudioBackgroundMusic/SFXTalkingChoppy"
 @onready var _sfx_dying_talkingchoppy2 = $"../../../AudioBackgroundMusic/SFXTalkingChoppy2"
 
@@ -55,6 +51,7 @@ var _logs = [
 	["\n!error", .1],
 	["\n!error", .1],
 	["\nyou are dying", .1],
+	["\nmessages incoming", 2],
 	["\n!error", .1],
 	["\n!error", .1],
 	["\n!error", .1],
@@ -65,73 +62,219 @@ var _logs = [
 	["\nyou are dying", 1],
 	["\n!error", .1],
 	["\n!error", .1],
+	["CLEAR", 1],
+	["\nRestarting Services", 5],
+	["*", 1],
+	["*", 1],
+	["*", .1],
+	["*", .1],
+	["*", 1],
+	["\nUnable to restart", 2],
+	["\n!error", .1],
+	["\nSTAT: (0x78a1) IMP error: visor_a3df98", 2],
+	["\n!error", .1],
+	["\n!error", .2],
+	["\n!error", .1],
+	["\n!error", .1],
+	["\n!error", .4],
+	["\nstart x_888894 --overtime -i 24", 2],
+	["\n[235]-90234", .1],
+	["\n[874]-46244", .5],
+	["\n[275]94768", 1],
+	["\n[146]75675", .3],
+	["\n[000]00000", .3],
+	["\n[000]00000", .1],
+	["\n[000]00000", 0],
+	["\n[000]00000", 0],
+	["\n[000]00000", 5],
+	["CLEAR", .1],
+	["\nREDREDREDREDREDREDR", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["\nEDREDREDREDREDREDRE", .1],
+	["\nDREDREDREDREDREDRED", .1],
+	["CLEAR", .1],
+	["\nPROC_REPORT:", 2],
+	["\nproc [pid] [tok] [%%%] [run]:", 1],
+	["\nnmon [13667] [a4b73d] [03%] [y]:", 1],
+	["\nprimaris_lnk [23558] [45d851] [07%] [n]:", .5],
+	["\norus_lnk [23560] [e37812] [17%] [n]:", 2],
+	["\n-", 2],
+	[" -", 2],
+	[" -", 2],
+	[" -", .1],
+	["\nexit: (0x79d1) corrupt sector", 1],
+	["\nstall - is sys ok?", 1],
+	["\n!error", .1],
+	["\nstall - is sys ok?", 1],
+	["\n!error", 3],
+	["\n!error", .2],
+	["\n!error", .1],
+	["\n!error", .1],
+	["\n!error", .4],
+	["CLEAR", .1],
+	["\n%#)@&#^%^&#&%^&)#)@", .1],
+	["\n##%#%%##%###&&&$$$&", .1],
+	["\n#!!!#%%#@@#^(*%%&&)", .1],
+	["\n))!@#$%&#^%@#^#%^%%", .1],
+	["\n!**($^&^&$^&#@$$^^&@", .1],
+	["\n()@#*%&@^%)@#&*%^^%^", .1],
+	["\n##########planet####", .1],
+	["\n%^^&%#&^&@%)&@#)^&*%", .1],
+	["\n@@!*(!!&*($%&($&$)))", .1],
+	["\n!!!!!!!!!!!!!!!!!!!!", .1],
+	["\n*%*&@#*%*(#&*%&*(*))", .1],
+	["\nERRORERRORERRORERROR", .1],
+	["\n#!!!#%%#@@#^(*%%&&)", .1],
+	["\n%^^&%#&^&@%)&@#)^&*%", .1],
+	["\n))!@#$%&#^%@#^#%^%%", .1],
+	["\n##%#%%##%###&&&$$$&", .1],
+	["\n#####dead##########", 1],
+	["\n()@#*%&@^%)@#&*%^^%^", .1],
+	["\n@@!*(!!&*($%&($&$)))", .1],
+	["\n#!!!#%%#@@#^(*%%&&)#", .1],
+	["\n##########howl######", 1],
+	["\n*%*&@#*%*(#&*%&*(*))", .1],
+	["\nERRORERRORERRORERROR", 12.5],
+	["CLEAR", .1],
+	["\n* .* *   *   *  .  *", 1],
+	["\n. . ` * .   . ` *   ", 1],
+	["\n. * . ` * .   * ` * ", 1],
+	["\n   . * . ` * ,   . *", 1],
+	["\n `   . . ` . ,  * ", 1],
+	["\n. * . ` * .   * ` * ", 1],
+	["\n* .* *   *   *  .  *", 1],
+	["\n `   . . ` . ,  * ", 1],
+	["\n* .* *   *   *  .  *", 1],
+	["\n. . ` * .   . ` *   ", 1],
+	["\n. * . ` * .   * ` * ", 1],
+	["\n   . * . ` * ,   . *", 1],
+	["\n `   . . ` . ,  * ", 1],
+	["\n. * . ` * .   * ` * ", 1],
+	["\n* .* *   *   *  .  *", 1],
+	["\n `   . . ` . ,  * ", 7.6],
+	["CLEAR", 10],
+	["", 28.5],
+	["\nyou are dying", 1],
+	["CLEAR", 10],
+	["", 15],
+	["transmission incoming", 5],
+	["\nstreaming", 1],
+	["\nstreaming", 1],
+	["\nstreaming", 1],
+	["\nstreaming", 1],
+	["\nstreaming", 1],
 ]
 var _log_index = 0
 
 var _messages = [
-	#["Connection lost.", 1],
-	#["Connection lost. .", 1],
-	#["Connection lost. . .", 1],
-	#["!Temperature overload", 1],
 	["This place was green once", 5],
+	["", 5],
 	["Primaris, Tolaris, Orus orbit a dead planet.", 5],
 	["", 5],
 	["When man fell to rust and chemical", 5],
-	["all they left was red.", 5],
-	["", 5],
-	["Yet from the grave, the collosi howls...", 5],
-	["Red Nahboris' winds long for contact.", 5],
-	["", 5],
+	["", 1],
+	["all they left was red.", 3],
+	["", 10],
+	["From the grave, a great collosi howls.", 5],
+	["", 1],
 	["The groans of an earthen behemoth.", 5],
-	["The very dust begs to be ingested.", 5],
-	["To crawl into every orifice", 5],
-	["To pool in every pit", 5],
-	["", 5],
-	["None shall again grace Nahboris' mantle", 5],
-	["That which spits fire and hellish plumes.", 5],
-	["which screams with banshee wind.", 5],
+	["", 2],
+	["Red Nahboris' winds long for contact.", 5],
+	["", 10],
+	["The dust that drifts on her surface begs to be ingested.", 5],
+	["", 1],
+	["To crawl its way into every orifice", 5],
+	["", 1],
+	["To pool in every pit", 3],
+	["", 10],
+	["Nahboris' mantle", 2],
+	["", 1],
+	["which spits fire and hellish plumes,", 5],
+	["", 1],
+	["which screams with banshee wind.", 4],
+	["", 1],
 	["whose miles-deep flesh covets a cosmic heart.", 5],
-	#["", 2],
-	#["Trees", 1],
-	#["Leaves", 1],
-	#["Life", 1],
-	#["Nobody to tell of these things.", 5],
-	#["!Temperature overload", 1],
-	#["", 2],
-	#["High impact displays ", 1],
-	#["Implants beyond the Altun limit turned flesh to waste.", 1],
-	#["Trafficked psycho-severants leave the mental in bits.", 1],
-	#["Nobody to tell of these things.", 5],
-	#["A mother kisses her child, as they leave for school.", 3],
-	#["Fires burn in a capital.", 3],
-	#["", 2],
-	#["This place was green once.", 5],
-	#["!Temperature overload", 1],
-	#["This", .1],
-	#["place", .1],
-	#["was", .1],
-	#["green", .1],
-	#["once", .1],
-	#["This", .1],
-	#["place", .1],
-	#["was", .1],
-	#["green", .1],
-	#["once", .1],
-	#["goodbye", .5],
-	#["This", .1],
-	#["place", .1],
-	#["was", .1],
-	#["green", .1],
-	#["once", .1],
-	#["let your HUD lull you asleep", .5],
-	#["This", .1],
-	#["place", .1],
-	#["was", .1],
-	#["green", .1],
-	#["once", .1],
-	
+	["", 5],
+	["upon this surface", 2],
+	["!Temperature overload", .5],
+	["dying.", .5],
+	["you are dying.", .5],
+	["you are going to die.", 1],
+	["", 10],
+	["This place was green once", 5],
+	["", 10],
+	["A house sits by the coast of the Ingmar.", 5],
+	["Soft breezes caress earthen limbs", 5],
+	["carrying Gull-call.", 2],
+	["", 5],
+	["Valleys and troughs spill out across Kjoller", 5],
+	["winding serpentine tendrils of water", 4],
+	["", 2],
+	["Nobody to tell of these things.", 2],
+	["you are dying.", .5],
+	["This place was green once", 5],
+	["", 2],
+	["I", 1],
+	["I was green once", 3],
 ]
-var _message_index = -1
+var _message_index = 0
+
+var _message_sounds = [
+	preload("res://assets/audio/sfx/whisper1.ogg"),
+	preload("res://assets/audio/sfx/whisper2.ogg"),
+	preload("res://assets/audio/sfx/whisper3.ogg"),
+	preload("res://assets/audio/sfx/whisper4.ogg"),
+	preload("res://assets/audio/sfx/whisper5.ogg"),
+	preload("res://assets/audio/sfx/whisper6.ogg"),
+	preload("res://assets/audio/sfx/whisper7.ogg"),
+	preload("res://assets/audio/sfx/whisper8.ogg"),
+]
+var _message_sound_index = 0
 
 @onready var _videos = [
 	$VideoStreamPlayer,
@@ -148,20 +291,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_heart_sprite.play("default")
-	_polyfox_sprite.play("default")
+	#var seconds = 0
+	#for x in _logs.size():
+		#if(x<_log_index):
+			#seconds += _logs[x][1]
+	#print(seconds)
+	
 	_planet_sprite.play("default")
-	_eyes_sprite.play("default")
 	_xray_sprite.play("default")
 	_planets_sprite.play("default")
-	_cross_sprite.play("default")
 	
 	$LabelVelocity.text = "velocity:" + str(_player.velocity)
 	$LabelCoordsX.text = "x:" + str(_player.position.x)
 	$LabelCoordsY.text = "y:" + str(_player.position.y)
 	$LabelCoordsZ.text = "z:" + str(_player.position.z)
-
-	$LabelMessage.text = _messages[_message_index][0]
 	
 	$LabelImplantError.text = "Visual Implant: Fatal Error: " + str(round($LabelTimer/GameTimer.time_left))
 
@@ -175,7 +318,7 @@ func _process(delta: float) -> void:
 			$LabelImplantError.show()	
 			$HUDAudio.stream = _ui_sfx2
 			$HUDAudio.play()
-	var _video_popup = 200
+	var _video_popup = 100
 	if($LabelTimer/GameTimer.time_left < _video_popup):
 		if(!$VideoStreamPlayer.is_visible_in_tree()):
 			$VideoStreamPlayer.show()		
@@ -201,7 +344,7 @@ func _process(delta: float) -> void:
 			$VideoStreamPlayer5.show()		
 			$HUDAudio.stream = _ui_sfx1
 			$HUDAudio.play()
-	if($LabelTimer/GameTimer.time_left < 120):
+	if($LabelTimer/GameTimer.time_left < 80):
 		$VideoStreamPlayerFocus.show()	
 		if($VideoStreamPlayerFocus/VideoChangeTimer.is_stopped()):
 			$VideoStreamPlayerFocus/VideoChangeTimer.start()
@@ -215,20 +358,31 @@ func _process(delta: float) -> void:
 			_sfx_dying_talkingchoppy2.play()
 	if($LabelTimer/GameTimer.time_left < 30):
 		$HUDPlanets.speed_scale = 3.5
-		if(!_sfx_dying_radio.playing):
-			_sfx_dying_radio.play()	
+		#if(!_sfx_dying_radio.playing):
+			#_sfx_dying_radio.play()	
 
 func _on_label_title_timer_timeout() -> void:
 	$Title.hide()
 	$LabelMessage/LabelMessageTimer.start()
 	
 func _on_label_message_timer_timeout() -> void:
-	$LabelMessage.show()
-	_message_index += 1
-	if(_message_index > _messages.size() - 1):
-		_message_index = 0
+	$HUDMessageAudio.stop()
+	if(!$LabelMessage.is_visible_in_tree()):
+		$LabelMessage.show()
+	else:
+		_message_index += 1
+		if(_message_index > _messages.size() - 1):
+			_message_index = 0
+	$LabelMessage.text = _messages[_message_index][0]
 	$LabelMessage/LabelMessageTimer.stop()
 	$LabelMessage/LabelMessageTimer.start(_messages[_message_index][1])
+	if($LabelMessage.text != ""):
+		print($LabelMessage.text)
+		$HUDMessageAudio.stream = _message_sounds[_message_sound_index]
+		$HUDMessageAudio.play()
+		_message_sound_index += 1
+		if(_message_sound_index > _message_sounds.size() - 1):
+			_message_sound_index = 0
 	
 func _change_video_focus(src: VideoStreamPlayer ) -> void:
 	if($VideoStreamPlayerFocus.is_playing() && $VideoStreamPlayerFocus.stream == src.stream):
@@ -253,8 +407,17 @@ func _on_video_change_timer_timeout() -> void:
 
 func _on_label_log_timer_timeout() -> void:
 	if(_log_index < _logs.size()):
+		print(_logs[_log_index][0])
+		if(_logs[_log_index][0] == "CLEAR"):
+			$LabelTemperature.text = ""
+			_log_index += 1
 		$LabelTemperature.text += _logs[_log_index][0]
 		$LabelTemperature/LabelLogTimer.start(_logs[_log_index][1])
 		_log_index += 1
 		$HUDAudio.stream = _ui_sfx_log
 		$HUDAudio.play()
+		# remove first log index, fake scroll
+		if($LabelTemperature.text.count('\n') > 37):
+			var index = $LabelTemperature.text.find('\n')
+			if index != -1:
+				$LabelTemperature.text = $LabelTemperature.text.substr(index + 1)
