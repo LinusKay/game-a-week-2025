@@ -179,8 +179,9 @@ var _logs = [
 	["\n#!!!#%%#@@#^(*%%&&)#", .1],
 	["\n##########howl######", 1],
 	["\n*%*&@#*%*(#&*%&*(*))", .1],
-	["\nERRORERRORERRORERROR", 12.5],
+	["\nERRORERRORERRORERROR", 3.5],
 	["CLEAR", .1],
+	["", 9],
 	["\n* .* *   *   *  .  *", 1],
 	["\n. . ` * .   . ` *   ", 1],
 	["\n. * . ` * .   * ` * ", 1],
@@ -261,8 +262,58 @@ var _messages = [
 	["", 2],
 	["I", 1],
 	["I was green once", 3],
+	["This place was green once", 5],
+	["Primaris, Tolaris, Orus orbit a dead planet.", 5],
+	["all they left was red", 5],
+	["red", 2],
+	["r", .1],
+	["re", .1],
+	["red", .1],
+	["redr", .1],
+	["redre", .1],
+	["redred", .1],
+	["redredr", .1],
+	["redredre", .1],
+	["redredred", .1],
+	["redredredr", .1],
+	["redredredre", .1],
+	["redredredred", .1],
+	["redredredredr", .1],
+	["!Temperature overload", .1],
+	["redredredredre", .1],
+	["redredredredred", .1],
+	["redredredredredr", .1],
+	["redredredredredre", .1],
+	["redredredredredred", .1],
+	["redredredredredredr", .1],
+	["redredredredredredre", .1],
+	["redredredredredredred", .1],
+	["redredredredredredredr", .1],
+	["redredredredredredredre", .1],
+	["redredredredredredredred", .1],
+	["This place was green once", .1],
+	["redredredredredredredredr", .1],
+	["redredredredredredredredre", .1],
+	["redredredredredredredredred", .1],
+	["redredredredredredredredredr", .1],
+	["redredredredredredredredredre", .1],
+	["redredredredredredredredredred", .1],
+	["redredredredredredredredredredr", .1],
+	["redredredredredredredredredredre", .1],
+	["redredredredredredredredredredred", .1],
+	["This place was green once", 1],
+	["rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", .1],
+	["eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", .1],
+	["ddddddddddddddddddddddddddddddddd", .1],
+	["nahborisnahborisnahborisnahboris", .1],
+	["Thi# pl&%% was g!$een onc4", .01],
+	["T#is place was gr#&^ once", .01],
+	["!!!@ place was gr$#!n on)()", 01],
+	["Th!% %#%!% w)( green !*()", .01],
+	["##########################", .01],
 ]
 var _message_index = 0
+# 55s
 
 var _message_sounds = [
 	preload("res://assets/audio/sfx/whisper1.ogg"),
@@ -348,7 +399,7 @@ func _process(delta: float) -> void:
 		$VideoStreamPlayerFocus.show()	
 		if($VideoStreamPlayerFocus/VideoChangeTimer.is_stopped()):
 			$VideoStreamPlayerFocus/VideoChangeTimer.start()
-	if($LabelTimer/GameTimer.time_left < 60):
+	if($LabelTimer/GameTimer.time_left < 60): 
 		$HUDPlanets.speed_scale = 1.5
 		if(!_sfx_dying_talkingchoppy.playing):
 			_sfx_dying_talkingchoppy.play()	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://ckkk0vpr0d2kq"]
+[gd_scene load_steps=125 format=3 uid="uid://ckkk0vpr0d2kq"]
 
 [ext_resource type="Shader" path="res://shader/dither.gdshader" id="1_dfebx"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_jcrvo"]
@@ -35,6 +35,7 @@
 [ext_resource type="Shader" path="res://shader/glitch.gdshader" id="31_hkdik"]
 [ext_resource type="Texture2D" uid="uid://d3vofpfkq03gh" path="res://assets/image/spritesheets/planets_spritesheet.png" id="35_eiigi"]
 [ext_resource type="AudioStream" uid="uid://ccm8gqykfnkqv" path="res://assets/audio/sfx/LavaLoop.ogg" id="36_hn8rw"]
+[ext_resource type="AudioStream" uid="uid://d3fhfeiaj6ipm" path="res://assets/audio/music/knockknock2.ogg" id="38_trdaw"]
 [ext_resource type="AudioStream" uid="uid://tc5da3ftip37" path="res://assets/audio/music/knockknock.ogg" id="40_s5ohe"]
 [ext_resource type="Script" path="res://audio_background_music.gd" id="41_12y4o"]
 [ext_resource type="AudioStream" uid="uid://bxs0atayhokwc" path="res://assets/audio/sfx/wind.ogg" id="42_f6gun"]
@@ -980,7 +981,7 @@ offset_bottom = 38.0
 label_settings = SubResource("LabelSettings_4awga")
 
 [node name="GameTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelTimer"]
-wait_time = 300.0
+wait_time = 70.0
 one_shot = true
 autostart = true
 
@@ -1197,7 +1198,6 @@ volume_db = -10.0
 volume_db = 20.0
 
 [node name="SubViewportContainer4" type="SubViewportContainer" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_c76ys")
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1207,17 +1207,19 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer4"]
 handle_input_locally = false
 size = Vector2i(1920, 1080)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_s5ohe")
 script = ExtResource("41_12y4o")
 
+[node name="AudioBackgroundMusic2" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
+stream = ExtResource("38_trdaw")
+
 [node name="AudioBackgroundAtmosphere" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
 stream = ExtResource("10_8j14m")
 volume_db = -20.0
 autoplay = true
-script = ExtResource("41_12y4o")
 
 [node name="MusicTimer" type="Timer" parent="AudioBackgroundMusic"]
 wait_time = 112.0
@@ -1238,6 +1240,7 @@ stream = ExtResource("44_rv0i6")
 
 [node name="SFXTalkingChoppy2" type="AudioStreamPlayer" parent="AudioBackgroundMusic"]
 stream = ExtResource("45_0mgfm")
+volume_db = 10.0
 
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" to="SubViewportContainer/SubViewport/TriggerHUDVideoDisplay" method="_on_body_entered"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/LabelTemperature/LabelLogTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_log_timer_timeout"]
