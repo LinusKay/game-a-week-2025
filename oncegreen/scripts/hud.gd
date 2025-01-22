@@ -3,11 +3,12 @@ extends CanvasLayer
 @onready var _planet_sprite = $HUDPlanet
 @onready var _xray_sprite = $HUDXray
 @onready var _planets_sprite = $HUDPlanets
-@onready var _cross_sprite = $HUDCross
 
 @onready var _player = $"../../../SubViewportContainer/SubViewport/Player"
 @onready var _sfx_dying_talkingchoppy = $"../../../AudioBackgroundMusic/SFXTalkingChoppy"
 @onready var _sfx_dying_talkingchoppy2 = $"../../../AudioBackgroundMusic/SFXTalkingChoppy2"
+@onready var _sfx_wind = $"../../../AudioBackgroundMusic/SFXWind"
+@onready var _music = $"../../../AudioBackgroundMusic"
 
 @onready var _ui_sfx1 = preload("res://assets/audio/sfx/TF_GUI-Sound-11.ogg")
 @onready var _ui_sfx2 = preload("res://assets/audio/sfx/TF_Meep.ogg")
@@ -310,7 +311,10 @@ var _messages = [
 	["T#is place was gr#&^ once", .01],
 	["!!!@ place was gr$#!n on)()", 01],
 	["Th!% %#%!% w)( green !*()", .01],
-	["##########################", .01],
+	["##########################", .05],
+	["!!!@ place was gr$#!n on)()", 01],
+	["Thi# pl&%% was g!$een onc4", .01],
+	["!!!!!!!!!!!!!!!!!!!!!!!!!!", .01],
 ]
 var _message_index = 0
 # 55s
@@ -409,8 +413,13 @@ func _process(delta: float) -> void:
 			_sfx_dying_talkingchoppy2.play()
 	if($LabelTimer/GameTimer.time_left < 30):
 		$HUDPlanets.speed_scale = 3.5
-		#if(!_sfx_dying_radio.playing):
-			#_sfx_dying_radio.play()	
+	if($LabelTimer/GameTimer.time_left < 3):
+		hide()
+		_music.stop()
+		_sfx_dying_talkingchoppy.stop()
+		_sfx_dying_talkingchoppy2.stop()
+		_sfx_wind.stop()
+		$VideoStreamPlayerFocus/AudioStreamPlayerFocus.stop()
 
 func _on_label_title_timer_timeout() -> void:
 	$Title.hide()

@@ -10,9 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://cf60dexw2gi78" path="res://assets/audio/sfx/66057__yewbic__ambience07_Internal.ogg" id="7_klm57"]
 [ext_resource type="PackedScene" uid="uid://dm6ss7bskn3xo" path="res://assets/model/Cyberpunk Platform.glb" id="8_df66e"]
 [ext_resource type="AudioStream" uid="uid://dyksivypblrpd" path="res://assets/audio/sfx/66015__yewbic__ambience06.ogg" id="8_m02ny"]
-[ext_resource type="Script" path="res://trigger_hud_video_display.gd" id="8_nk107"]
+[ext_resource type="Script" path="res://scripts/trigger_hud_video_display.gd" id="8_nk107"]
 [ext_resource type="AudioStream" uid="uid://b1os12qryx7qy" path="res://assets/audio/sfx/66058__yewbic__ambience08_Internal.ogg" id="9_a84ui"]
-[ext_resource type="Material" uid="uid://dq0wcsx4e30gc" path="res://tower.tres" id="9_di6o3"]
+[ext_resource type="Material" uid="uid://dq0wcsx4e30gc" path="res://shader/tower.tres" id="9_di6o3"]
 [ext_resource type="PackedScene" uid="uid://biof0m7d1i30r" path="res://assets/model/Cyberpunk Platform (1).glb" id="9_es7kr"]
 [ext_resource type="AudioStream" uid="uid://d0in627im2ky1" path="res://assets/audio/sfx/33703__yewbic__ambience02.ogg" id="10_8j14m"]
 [ext_resource type="AudioStream" uid="uid://cnor3jaklhrbf" path="res://assets/audio/sfx/metalcreaking.ogg" id="11_m6dlh"]
@@ -37,7 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://ccm8gqykfnkqv" path="res://assets/audio/sfx/LavaLoop.ogg" id="36_hn8rw"]
 [ext_resource type="AudioStream" uid="uid://d3fhfeiaj6ipm" path="res://assets/audio/music/knockknock2.ogg" id="38_trdaw"]
 [ext_resource type="AudioStream" uid="uid://tc5da3ftip37" path="res://assets/audio/music/knockknock.ogg" id="40_s5ohe"]
-[ext_resource type="Script" path="res://audio_background_music.gd" id="41_12y4o"]
+[ext_resource type="Script" path="res://scripts/audio_background_music.gd" id="41_12y4o"]
 [ext_resource type="AudioStream" uid="uid://bxs0atayhokwc" path="res://assets/audio/sfx/wind.ogg" id="42_f6gun"]
 [ext_resource type="AudioStream" uid="uid://cxxeawmkfvf26" path="res://assets/audio/sfx/randomambience.ogg" id="43_1dajc"]
 [ext_resource type="AudioStream" uid="uid://bg4b735xno1pm" path="res://assets/audio/sfx/talking choppy.ogg" id="44_rv0i6"]
@@ -581,9 +581,9 @@ outline_color = Color(0, 0, 0, 1)
 shader = ExtResource("31_hkdik")
 shader_parameter/shake_power = 0.001
 shader_parameter/shake_rate = 0.087
-shader_parameter/shake_speed = 1.0
+shader_parameter/shake_speed = 2.0
 shader_parameter/shake_block_size = 1.0
-shader_parameter/shake_color_rate = 0.01
+shader_parameter/shake_color_rate = 0.2
 
 [node name="world" type="Node3D"]
 
@@ -981,7 +981,7 @@ offset_bottom = 38.0
 label_settings = SubResource("LabelSettings_4awga")
 
 [node name="GameTimer" type="Timer" parent="SubViewportContainer2/SubViewport/HUD/LabelTimer"]
-wait_time = 70.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
@@ -1209,6 +1209,10 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
+[node name="GlitchColorRateTimer" type="Timer" parent="SubViewportContainer4"]
+wait_time = 5.0
+autostart = true
+
 [node name="AudioBackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("40_s5ohe")
 script = ExtResource("41_12y4o")
@@ -1249,4 +1253,5 @@ volume_db = 10.0
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/Title/LabelTitleTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_label_title_timer_timeout"]
 [connection signal="timeout" from="SubViewportContainer2/SubViewport/HUD/VideoStreamPlayerFocus/VideoChangeTimer" to="SubViewportContainer2/SubViewport/HUD" method="_on_video_change_timer_timeout"]
+[connection signal="timeout" from="SubViewportContainer4/GlitchColorRateTimer" to="SubViewportContainer" method="_on_glitch_color_rate_timer_timeout"]
 [connection signal="timeout" from="AudioBackgroundMusic/MusicTimer" to="AudioBackgroundMusic" method="_on_music_timer_timeout"]
