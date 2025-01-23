@@ -50,5 +50,5 @@ func _process(delta: float) -> void:
 
 
 func _on_glitch_color_rate_timer_timeout() -> void:
-	var rate = clamp(sin((t_bob * 1) * 1), 0.01, 0.2)
+	var rate = clamp(sin((t_bob * 1) * 1), 0.001, 0.1)
 	_glitch_shader.material.set_shader_parameter("shake_color_rate", rate)
