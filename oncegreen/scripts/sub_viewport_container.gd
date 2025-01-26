@@ -32,19 +32,19 @@ func _process(delta: float) -> void:
 		_camera.fov += 0.03
 	if(_timer_game.time_left < 15):
 		_hud_shader.material.set_shader_parameter("u_color_tex", preload("res://shader/assets/palette_mono.png"))
-		material.set_shader_parameter("u_dither_size", 3)
-	if(_timer_game.time_left < 10):
-		material.set_shader_parameter("u_dither_size", 8)
-	if(_timer_game.time_left < 5):
-		material.set_shader_parameter("u_dither_size", 16)
-	if(_timer_game.time_left < 4):
-		material.set_shader_parameter("u_dither_size", 32)
-	if(_timer_game.time_left < 3):
-		material.set_shader_parameter("u_dither_size", 64)
-	if(_timer_game.time_left < 2):
-		material.set_shader_parameter("u_dither_size", 128)
-	if(_timer_game.time_left < 1):
-		material.set_shader_parameter("u_dither_size", 256)
+		#material.set_shader_parameter("u_dither_size", 1)
+	#if(_timer_game.time_left < 10):
+		#material.set_shader_parameter("u_dither_size", 8)
+	#if(_timer_game.time_left < 5):
+		#material.set_shader_parameter("u_dither_size", 16)
+	#if(_timer_game.time_left < 4):
+		#material.set_shader_parameter("u_dither_size", 32)
+	#if(_timer_game.time_left < 3):
+		#material.set_shader_parameter("u_dither_size", 64)
+	#if(_timer_game.time_left < 2):
+		#material.set_shader_parameter("u_dither_size", 128)
+	#if(_timer_game.time_left < 1):
+		#material.set_shader_parameter("u_dither_size", 256)
 	if(_timer_game.time_left <= 0):
 		get_tree().quit()
 

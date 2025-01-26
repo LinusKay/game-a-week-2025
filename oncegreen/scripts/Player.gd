@@ -22,6 +22,7 @@ const CAMERA_LIMIT_UP = 80
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var timer = $"../../../SubViewportContainer2/SubViewport/HUD/LabelTimer/GameTimer"
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -35,6 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -44,11 +46,22 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	# Handle Sprint
-	if Input.is_action_pressed("sprint"):
-		speed = SPRINT_SPEED
+	if(timer.time_left < 30):
+		if Input.is_action_pressed("sprint"):
+			speed = SPRINT_SPEED/2
+		else:
+			speed = WALK_SPEED/2
+	elif(timer.time_left < 20):
+		if Input.is_action_pressed("sprint"):
+			speed = SPRINT_SPEED/4
+		else:
+			speed = WALK_SPEED/4
 	else:
-		speed = WALK_SPEED
-
+		if Input.is_action_pressed("sprint"):
+			speed = SPRINT_SPEED
+		else:
+			speed = WALK_SPEED
+	print(speed)
 	# Quit game on ESC
 	if Input.is_action_pressed("exit"):
 		get_tree().quit()
