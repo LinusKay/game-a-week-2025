@@ -4,12 +4,14 @@
 
 ## Game: ONCE GREEN
 
+!["Showcase image"](/showcase/zt540P.png)
 !["Showcase image"](/showcase/Godot_v4.3-stable_win64_bytGhaw3AN.gif)
 
 > The celestial dead calls. Planet Nahboris lays slain. Red Nahboris who spits fire and carries rust on its winds. 
 
 > Your body is damaged. The implants that once outclassed your flesh are shattered. Your vision is failing. 
 
+### [View on itch.io](https://umconfortable.itch.io/oncegreen)
 
 ## Discussion
 
